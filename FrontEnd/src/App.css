@@ -1,0 +1,46 @@
+@import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+.App {
+  text-align: left;
+}
+
+
+/*   đây là phần riêng */
+#components-layout-demo-fixed .logo {
+  width: 120px;
+  height: 31px;
+  background: white;
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.navbar-brand {
+	height: inherit;
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 5px;
+  font-size: 42px;
+  margin-top: 5px;
+  color: #e43c5c;
+}
+.menu
+{
+  float: right;
+}
+.header
+{
+  background-color: white;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

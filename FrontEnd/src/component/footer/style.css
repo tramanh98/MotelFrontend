@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+.contact-section {
+  background: #f7f7f7;
+  height: 450px;
+  position: relative;
+}
+
+.contact-info {
+  padding-top: 100px;
+  padding-left: 50px;
+}
+.contact-info .ci-item {
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+.contact-info .ci-item .ci-icon {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: #00C89E;
+  font-size: 24px;
+  color: #ffffff;
+  line-height: 60px;
+  text-align: center;
+  float: left;
+  margin-right: 20px;
+}
+.contact-info .ci-item .ci-text {
+  overflow: hidden;
+  padding-top: 5px;
+}
+.contact-info .ci-item .ci-text h5 {
+  color: #111111;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.contact-info .ci-item .ci-text p {
+  color: #111111;
+  opacity: 0.7;
+  margin-bottom: 0;
+}
+.contact-info .ci-item .ci-text ul {
+  padding-top: 4px;
+}
+.contact-info .ci-item .ci-text ul li {
+  list-style: none;
+  display: inline-block;
+  color: #111111;
+  opacity: 0.7;
+  font-size: 14px;
+  margin-right: 20px;
+  position: relative;
+}
+.contact-info .ci-item .ci-text ul li:after {
+  position: absolute;
+  right: -14px;
+  top: -2px;
+  content: "|";
+}
+.contact-info .ci-item .ci-text ul li:last-child {
+  margin-right: 0;
+}
+.contact-info .ci-item .ci-text ul li:last-child:after {
+  display: none;
+}
+
+.cs-map {
+  height: 450px;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.cs-map iframe {
+  width: 100%;
+}
+
+
+
+
+/* Medium Device = 1200px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* .hs-top .ht-widget .hw-btn {
+    font-size: 11px;
+  } */
+
+ 
+  .cs-item-list .cs-item .cs-text {
+    width: 160px;
+  }
+
+
+}
+/* Tablet Device = 768px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+ 
+  .cs-item-list .cs-item {
+    width: calc(33.33% - 10px);
+    margin-bottom: 10px;
+  }
+
+  .contact-section {
+    height: auto;
+  }
+
+  .cs-map {
+    height: 450px;
+    position: relative;
+    width: 100%;
+  }
+
+  
+}
+/* Wide Mobile = 480px */
+@media only screen and (max-width: 767px) {
+ 
+  .cs-item-list .cs-item {
+    width: calc(50% - 10px);
+  }
+
+  .contact-section {
+    height: auto;
+  }
+
+  .cs-map {
+    height: 450px;
+    position: relative;
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
