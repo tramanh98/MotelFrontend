@@ -1,0 +1,10 @@
+.align
+{
+    margin: auto 5px;
+    display: block;
+}
+.cter{
+    display: flex;
+    justify-content: flex-start;
+    float: left;
+}

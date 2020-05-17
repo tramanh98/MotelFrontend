@@ -1,0 +1,8 @@
+.dt
+{
+    display: flex;
+    justify-content: space-between;
+}
+.dt p{
+    font-weight: bold;
+}

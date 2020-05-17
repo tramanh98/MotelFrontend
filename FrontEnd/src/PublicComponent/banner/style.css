@@ -1,0 +1,33 @@
+@import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+/*** Banner ***/
+.ctn{
+    margin: 5px 0 30px 0;
+}
+.banner
+{
+    position: relative;
+    
+}
+#background-filter .filter
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.575);
+    height: fit-content;
+    padding: 1rem;
+    
+}
+
+label
+{
+    color: rgb(231, 224, 209);
+}
+.btn-find
+{
+    display: flex;
+    align-items: center;
+}
+

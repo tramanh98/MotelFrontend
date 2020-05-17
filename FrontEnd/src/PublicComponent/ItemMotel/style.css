@@ -1,0 +1,71 @@
+.item-mt
+{
+    border: 1px solid lightgray;
+    margin-bottom: 20px; 
+    padding: 10px ;
+
+}
+.mt-title
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.mt-title p
+{
+    background-color: rgb(9, 241, 202);
+    border-radius: 5px;
+    width: fit-content;
+    padding: 0 5px;
+    margin: auto 0
+}
+.mt-title h4
+{
+    width: fit-content;
+    align-self: center;
+    margin: 0 5px;
+
+}
+
+.mt-addr{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 5px 0;
+}
+.mt-addr p
+{
+    margin: 0 5px;
+}
+.mt-price
+{
+    font-weight: bold;
+    color: rgb(241, 9, 40);
+}
+.mt-area{
+    
+}
+/************** đây là khung hình ảnh ***********/
+.img
+{
+    padding: 0;
+    margin: 0;
+}
+img{
+    margin: 0;
+    width: 100%;
+}
+a.subnav_link:link {
+    text-decoration: none; }
+  
+a.subnav_link:hover {
+    cursor: pointer;
+    color: gray; }
+  
+a.subnav_link:visited {
+    color: red; }
+  
+a.subnav_link:active {
+    color: red; }

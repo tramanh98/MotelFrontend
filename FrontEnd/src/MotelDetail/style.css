@@ -1,0 +1,219 @@
+@import '~antd/dist/antd.css';
+@import '~react-image-gallery/styles/css/image-gallery.css';
+
+/* .container
+{
+    padding: 20px;
+    margin-top: 100px;
+    background-color: white;
+} */
+.fs-find
+{
+    background-color: tomato;
+    border-radius: 5px;
+    padding: 10px;
+}
+.fs-find h3{
+    text-align: center;
+}
+.fs-find button{
+    margin: 10px;
+    
+}
+.fs-find select
+{
+    margin: 5px auto;
+}
+
+/*********** comments *********/
+.comments
+{
+    margin: 20px 0;
+}
+.avatar
+{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: lightcoral;
+    text-align: center;
+    margin: 0 5px;
+}
+.identity
+{
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+}
+.identity h6
+{
+    margin: auto 10px;
+}
+/*************** Đây là phần tiêu đề cho nhà trọ  ********/
+.ml-title
+{
+    padding: 0 10px;
+}
+.ml-title .col-lg-9
+{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    
+}
+.ml-title p
+{
+    background-color: rgb(9, 90, 241);
+    border-radius: 5px;
+    width: fit-content;
+    padding: 0 5px;
+    margin: auto 0;
+}
+.ml-title h3
+{
+    width: fit-content;
+    padding: 0 10px;
+    margin: auto 0;
+
+}
+.ml-title .col-lg-3
+{
+    text-align: right;
+}
+.ml-title button
+{
+    border-radius: 10px;
+    background-color: lightcoral;
+    padding: 5%;
+}
+.location
+{
+    margin: 10px 5px;
+}
+.location i
+{
+    margin: auto;
+}
+.location span{
+    padding: 0 10px;
+}
+
+/************* đây là phần hình ảnh ****************/
+
+/***************************************/
+.intro
+{
+    margin-top: 15px;
+    border-top: 1px solid lightgrey;
+    padding-top: 20px;
+
+}
+
+/*********** Đây là phần scroll bar *************/
+.scrollbar-deep-purple::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(245, 245, 245, 0);
+    border-radius: 10px; }
+    
+.scrollbar-deep-purple::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(245, 245, 245, 0); }
+    
+.scrollbar-deep-purple::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #a8772d91; }
+    
+.scrollbar-deep-purple {
+    scrollbar-color: #a8772d91 rgba(245, 245, 245, 0);
+    }
+
+.bordered-deep-purple::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    border: 1px solid #a8772d91; }
+    
+.bordered-deep-purple::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: none; }
+    
+.thin::-webkit-scrollbar {
+    width: 6px; }
+
+    
+/*** đây là phần bản đồ **********/
+.map-container-5
+{
+    position:relative;
+}
+.map-container-5 iframe{
+    left: 0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+
+/*****************************/
+.convenient , .requirements , .around
+{
+    margin-top: 15px;
+    border-top: 1px solid lightgrey;
+    padding-top: 10px;
+}
+.convenient div
+{
+    margin: 7px;
+}
+.convenient span
+{
+    padding-left: 20px;
+}
+.requirements div{
+    margin: 7px;
+}
+.requirements span
+{
+    margin: 20px;
+}
+
+.core
+{
+    background-color: teal;
+    padding: 5px 10px;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    font-size: 30px;
+    border-radius: 7px 7px 7px 0;
+}
+.recmm
+{
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 0;
+}
+.bs-core
+{
+    padding: 0 5px;
+}
+.bs-core p 
+{
+    margin: 0;
+}
+.bdr
+{
+    border-top: 1px solid lightgray;
+}
+.infor
+{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+}
+.breadcrumb
+{
+    margin: 10px;
+    background-color: white;
+}

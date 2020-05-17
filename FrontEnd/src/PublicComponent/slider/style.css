@@ -1,0 +1,12 @@
+.ctn .content {
+    position: absolute; /* Position the background text */
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.644); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 60%; /* Full width */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding-top: 10px;
+  }

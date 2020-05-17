@@ -1,0 +1,50 @@
+.btn
+{
+    margin: 10px;
+    width: 30%;
+}
+#btn-network-social
+{
+    margin: 10 5 20 5;
+
+}
+#head-login
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.line
+{
+    border-bottom: 1px solid lightgrey;
+    margin: 10px;
+    margin-bottom: 40px;
+
+}
+.line p{
+    background-color: white;
+    width: 30px;
+    margin-bottom: -10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.form
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.btnCol
+{
+    background-color: #88888800;
+}
+.flowup{
+    position: relative;
+    z-index: 1000;
+}
+#head-login{
+    padding: 0;
+    margin: 0;
+}
