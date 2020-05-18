@@ -6,7 +6,7 @@ import ImageGallery from 'react-image-gallery';
 // import Comments from './component/comments';
 import FilterFind from '../PublicComponent/FilterFind/index';
 // import Detail from './component/detail';
-import { Col, Tag, Row, Breadcrumb  } from 'antd';
+import { Col, Tag, Row, Breadcrumb } from 'antd';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -82,14 +82,14 @@ export default class MotelDetail extends Component {
                         <div className="col-lg-9">
                             <div className="row ml-title">
                                 <div className="col-lg-9">
-                                    <p>Căn hộ</p>
+                                    <Tag color="magenta">Căn hộ</Tag>
                                     <h3>Golden Palace</h3>
                                 </div>
                             </div>
                             <div>
                                 <div className="location">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    <span>Sussex Square, Westminster Borough, London, W2 2SJ, Vương Quốc Anh</span>
+                                    <span>21/45/52 đường số 8, Phường 8, Quận 8, HCM</span>
                                 </div>
                             </div>
 

@@ -41,8 +41,9 @@
 
 .navbar
 {
-  padding: 5px 120px !important;
-  background-color: lightseagreen !important;
+  padding: 2px 120px !important;
+  background-color: #caad6f !important;
+  
 }
 .nav-link{
   color: white !important;

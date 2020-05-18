@@ -39,7 +39,7 @@ export default class Register extends Component {
     return (
       <Aux>
         <div>
-          <Button type="link" style={{color: "#212529"}} onClick={() => this.showModal()}>ĐĂNG KÍ</Button>
+          <Button type="link" className="btnlgin" onClick={() => this.showModal()}>ĐĂNG KÍ</Button>
           <Modal
             visible={visible}
             title="Register"

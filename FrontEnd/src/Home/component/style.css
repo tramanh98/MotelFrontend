@@ -10,3 +10,17 @@
     text-align: center;
     padding-top: 10px;
   }
+.hit-tt{
+  padding: 0;
+  margin-bottom: 20px;
+}
+.fct, .hm-all-type{
+  height: fit-content;
+  border-left: 4px solid brown;
+  font-size: x-large;
+  font-weight: bold;
+  padding: 0 10px;
+}
+.list-mt-hot{
+  margin: 0 5px;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
-import { Row, Col, Avatar } from 'antd';
+import { Row, Col, Avatar, Form, Input, Button } from 'antd';
 import { Radio } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import AvatarUpload from './avatar'
@@ -8,18 +8,44 @@ import {Dashboard} from '../../index'
 import '../../style.css'
 export default class EditProfile extends Component {
     render() {
+        const normFile = e => {
+            console.log('Upload event:', e);
+            if (Array.isArray(e)) {
+              return e;
+            }
+            return e && e.fileList;
+          };
+        const validateMessages = {
+            required: '${label} is required!',
+            types: {
+              email: '${label} is not validate email!',
+              number: '${label} is not a validate number!',
+            }
+          };
+        const onFinish = values => {
+            console.log(values);
+          };
         return (
             <Dashboard>
             <div className="edt">
                 <h4>Thông tin tài khoản</h4>
-
-                <div className="formm">
-                    <div class="row">
+                <Form
+                name="basic"
+                onFinish={onFinish}
+                validateMessages={validateMessages}
+                >
+                <div class="row">
                         <div class="col-3">
                             <label for="fname">Ảnh của bạn</label>
                         </div>
                         <div class="col-9">
-                            <AvatarUpload/>
+                            <Form.Item
+                            name="upload"
+                            valuePropName="fileList"
+                            getValueFromEvent={normFile}>
+                                <AvatarUpload/>
+                            </Form.Item>
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -27,7 +53,12 @@ export default class EditProfile extends Component {
                             <label for="fname">First Name</label>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="fname" name="firstname" placeholder="Your name.." />
+                            <Form.Item
+                            name="firstname"
+                            rules={[{ required: true, message: 'Please input your username!' }]}
+                            >
+                                <Input />
+                            </Form.Item>
                         </div>
                     </div>
                     <div class="row">
@@ -35,7 +66,12 @@ export default class EditProfile extends Component {
                             <label for="lname">Last Name</label>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
+                            <Form.Item
+                            name="lastname"
+                            rules={[{ required: true, message: 'Please input your username!' }]}
+                            >
+                                <Input />
+                            </Form.Item>
                         </div>
                     </div>
                     <div class="row">
@@ -43,7 +79,9 @@ export default class EditProfile extends Component {
                             <label for="email">Email</label>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="email" name="email" placeholder="Email" />
+                            <Form.Item name="email" rules={[{ type: 'email' }]}>
+                                <Input />
+                            </Form.Item>
                         </div>
                     </div>
                     <div class="row">
@@ -51,15 +89,19 @@ export default class EditProfile extends Component {
                             <label for="email">Số điện thoại</label>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="phone" name="phone" placeholder="Number phone" />
+                            <Form.Item
+                            name="numberphone">
+                                <Input />
+                            </Form.Item>
                         </div>
                     </div>
-                    <div class="btnsbm">
-                        <input type="submit" value="Cập nhập" />
-                    </div>
-                </div>
-
-            </div>
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit">
+                        Cập nhập
+                        </Button>
+                    </Form.Item>
+                </Form>
+               </div>
             </Dashboard>
         );
     }

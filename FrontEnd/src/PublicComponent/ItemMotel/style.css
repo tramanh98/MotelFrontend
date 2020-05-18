@@ -1,8 +1,9 @@
 .item-mt
 {
-    border: 1px solid lightgray;
+    border: 0.02rem solid #f5c86659;
     margin-bottom: 20px; 
     padding: 10px ;
+    background-color: #cfc5ad59;
 
 }
 .mt-title
@@ -43,6 +44,7 @@
 {
     font-weight: bold;
     color: rgb(241, 9, 40);
+    margin: 0;
 }
 .mt-area{
     
@@ -58,14 +60,15 @@ img{
     width: 100%;
 }
 a.subnav_link:link {
-    text-decoration: none; }
+    color: #212529;
+}
   
 a.subnav_link:hover {
     cursor: pointer;
-    color: gray; }
+    color: blue; }
   
 a.subnav_link:visited {
-    color: red; }
+    color: #212529; }
   
 a.subnav_link:active {
-    color: red; }
+    color: black; }

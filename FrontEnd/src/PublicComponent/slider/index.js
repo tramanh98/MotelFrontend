@@ -29,29 +29,29 @@ function SampleNextArrow(props) {
   }
 export default function SliderMotel () {
     const list_img = [{
-        type: "Căn hộ",
+        type: "Nhà nguyên căn",
         queryType: "can-ho",
-        img: "../img/categories/cat-1.jpg"
+        img: "../img/categories/cat-5.jpg"
     },
     {
         type: "Chung cư",
         queryType: "chung-cu",
-        img: "../img/categories/cat-2.jpg"
+        img: "../img/room/chungcu.jpg"
     },
     {
-        type: "Nhà trọ",
+        type: "Phòng trọ",
         queryType: "nha-tro",
-        img: "../img/categories/cat-3.jpg"
+        img: "../img/room/phongtro.jpg"
     },
     {
-        type: "Nhà ở ghép",
+        type: "Phòng ở ghép",
         queryType: "nha-o-ghep",
-        img: "../img/categories/cat-4.jpg"
+        img: "../img/room/nhaoghep.jpg"
     },
     {
-        type: "Kí túc xá",
-        queryType: "ky-tuc-xa",
-        img: "../img/categories/cat-5.jpg"
+        type: "Mặt bằng",
+        queryType: "mat-bang",
+        img: "../img/room/matbang.jpg"
     }]
 
     const settings = {

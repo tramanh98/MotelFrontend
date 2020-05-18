@@ -2,7 +2,25 @@
 {
     padding: 0;
     margin: 0;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
 }
-.fs-find{
+.fs-find
+{
+    background-color: rgba(152, 185, 180, 0.308);
+    border-radius: 5px;
+    padding: 10px;
     margin: 20px 0;
+}
+.fs-find h3{
+    text-align: center;
+}
+.fs-find button{
+    margin: 10px;
+    
+}
+.fs-find select
+{
+    margin: 5px auto;
 }

@@ -8,7 +8,7 @@ export default class FooterHead extends Component
         return(
             <React.Fragment>
               <footer class="page-footer font-small unique-color-dark">
-              <div style={{backgroundColor: '#6351ce'}}>
+              <div style={{backgroundColor: '#caad6f'}}>
                 <div class="container">
 
                   <div class="row py-4 d-flex align-items-center">

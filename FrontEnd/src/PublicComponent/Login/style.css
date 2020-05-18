@@ -48,3 +48,10 @@
     padding: 0;
     margin: 0;
 }
+.btnlgin{
+    font-family: "Montserrat";
+    color: #4d5258;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}

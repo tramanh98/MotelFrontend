@@ -126,26 +126,29 @@ export default class MotelType extends Component {
         return (
 
             <div id="service" class="section-padding">
-                    <h3 style={{fontWeight: 'bold'}}>Tìm theo loại nhà trọ</h3>
+                    <div className="hm-all-type" style={{margin: "0 0 10px 10px"}}>Tìm theo loại nhà trọ</div>
                     <div>
                         <SliderMotel/>
                     </div>
                     
                     <Row justify={"space-between"} style={{margin: '40px 0'}}>
-                        <Col span={18} style={{padding: '0 10px 0 0'}}>
-                            <div class="d-flex align-items-end">
-                                <div class="mr-auto p-2"><h3 style={{fontWeight: 'bold', margin: 0, padding: 0}}>Nổi bật</h3></div>
-                                <div class="p-2"><Link to={'/results?q=react&limit=3'}>Xem thêm</Link></div>
+                        <Col span={16} style={{padding: '0 10px 0 0'}}>
+                            <div className="d-flex align-items-end  hit-tt" style={{padding:0, margin: 0}}>
+                                <div className="mr-auto p-2" style={{padding:0, margin: 0}}><div className="fct">Nổi bật</div></div>
+                                <div className="p-2" style={{padding: 0, margin: 0}}><Link to={'/results?q=react&limit=3'} style={{padding: 0, margin: 0}} >Xem thêm</Link></div>
                                 
                             </div>
-                            <MotelFrame/>
-                            <MotelFrame/>
-                            <MotelFrame/>
-                            <MotelFrame/>
-                            <MotelFrame/>
+                            <div className="list-mt-hot">
+                                <MotelFrame/>
+                                <MotelFrame/>
+                                <MotelFrame/>
+                                <MotelFrame/>
+                                <MotelFrame/>
+                            </div>
+
 
                         </Col>
-                        <Col span={6} style={{padding: '0 0 0 10px'}}>
+                        <Col span={7} style={{padding: '0 0 0 10px'}}>
                             <News/>
                             <img src="./img/ads.png" style={{width: '100%'}} />
                             <Contract/>

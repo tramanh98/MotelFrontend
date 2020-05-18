@@ -14,58 +14,54 @@ class News extends Component {
   render() {
       return(
 
-        <div >
-            <h4 style={{fontWeight: 'bold'}}>Tin mới đăng</h4>
-            <ul style={{padding: '0 0 0 20px'}}>
-                <li>Phòng trọ chính chủ cho thuê gần ĐHCN 
-                    <div className="dt">
-                        <p>2.4tr/tháng</p>
-                        <span>{moment().fromNow()}</span>
-                    </div>
-                    
+        <div>
+            <div className="latest-news">Tin mới đăng</div>
+            <ul className="list-news" style={{padding: '0 0 0 20px'}}>
+                <li>
+                    <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
+                        <div className="dt" >
+                            <p>2.4tr/tháng</p>
+                            <span>{moment().fromNow()}</span>
+                        </div>
+                    </Link>
                 </li>
-                <li>Phòng trọ chính chủ cho thuê gần ĐHCN 
-                    <div className="dt">
-                        <p>2.4tr/tháng</p>
-                        <span>{moment().fromNow()}</span>
-                    </div>
-                    
+                <hr className="dashed"/>
+                <li>
+                    <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
+                        <div className="dt" >
+                            <p>2.4tr/tháng</p>
+                            <span>{moment().fromNow()}</span>
+                        </div>
+                    </Link>
                 </li>
-                <li>Phòng trọ chính chủ cho thuê gần ĐHCN 
-                    <div className="dt">
-                        <p>2.4tr/tháng</p>
-                        <span>{moment().fromNow()}</span>
-                    </div>
-                    
+                <hr className="dashed"/>
+                <li>
+                    <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
+                        <div className="dt" >
+                            <p>2.4tr/tháng</p>
+                            <span>{moment().fromNow()}</span>
+                        </div>
+                    </Link>
                 </li>
-                <li>Phòng trọ chính chủ cho thuê gần ĐHCN 
-                    <div className="dt">
-                        <p>2.4tr/tháng</p>
-                        <span>{moment().fromNow()}</span>
-                    </div>
-                    
+                <hr className="dashed"/>
+                <li>
+                    <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
+                        <div className="dt" >
+                            <p>2.4tr/tháng</p>
+                            <span>{moment().fromNow()}</span>
+                        </div>
+                    </Link>
                 </li>
-                <li>Phòng trọ chính chủ cho thuê gần ĐHCN 
-                    <div className="dt">
-                        <p>2.4tr/tháng</p>
-                        <span>{moment().fromNow()}</span>
-                    </div>
-                    
+                <hr className="dashed"/>
+                <li>
+                    <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
+                        <div className="dt" >
+                            <p>2.4tr/tháng</p>
+                            <span>{moment().fromNow()}</span>
+                        </div>
+                    </Link>
                 </li>
-                <li>Phòng trọ chính chủ cho thuê gần ĐHCN 
-                    <div className="dt">
-                        <p>2.4tr/tháng</p>
-                        <span>{moment().fromNow()}</span>
-                    </div>
-                    
-                </li>
-                <li>Phòng trọ chính chủ cho thuê gần ĐHCN 
-                    <div className="dt">
-                        <p>2.4tr/tháng</p>
-                        <span>{moment().fromNow()}</span>
-                    </div>
-                    
-                </li>
+                
             </ul>
         </div>
       );

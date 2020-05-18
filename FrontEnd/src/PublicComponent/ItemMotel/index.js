@@ -23,7 +23,7 @@ export default function MotelFrame() {
                 </div>
                 <div className="mt-addr">
                     <EnvironmentTwoTone style={{fontSize: '20px'}} />
-                    <p>Sussex Square, Westminster Borough, London, W2 2SJ, Vương Quốc Anh</p>
+                    <p>21/45/52 đường số 8, Phường 8, Quận 8, HCM</p>
                 </div>
                 <p className="mt-price">3.4 triệu/tháng</p>
                 <p className="mt-area">Diện tích: <strong>80m²</strong></p>

@@ -86,9 +86,9 @@ export default class Login extends Component {
     return (
       <Aux>
         <div className="flowup">
-          <Button type="link" style={{color: "#212529"}} onClick={() => this.showDrawer()}>ĐĂNG NHẬP</Button>
+          <Button type="link" className="btnlgin" onClick={() => this.showDrawer()}>ĐĂNG NHẬP</Button>
           <Modal
-            title="Login to 2HOME"
+            title="Login"
             width={500}
             onCancel={()=>this.onClose()}
             visible={this.state.visible || visible}
