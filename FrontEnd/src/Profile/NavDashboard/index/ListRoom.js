@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect, Link } from "react-router-dom";
 import { Row, Col, Tag, Button } from 'antd';
 import { Table, Popconfirm } from 'antd';
-import './style.css'
+import axios from 'axios';
+import { AuthContext } from '../../../others/contexts/auth.context'
 
 export default class ListRoom extends React.Component {
     constructor(props) {
@@ -109,6 +110,39 @@ export default class ListRoom extends React.Component {
           count: 2,
         }
         this.handleDelete = this.handleDelete.bind(this);;
+    }
+    static contextType = AuthContext;
+
+    async componentDidMount() {
+        const { user } = this.context;
+        if (user) {
+            const token = user.token;
+            console.log("Token " + token)
+
+            const response = await axios.get(`http://127.0.0.1:8000/user/`, {
+                headers: {
+                    'Authorization': 'Token ' + token
+                }
+            }).then(response => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+            ;
+            
+
+            // const { data } = response.data;
+            // const dataState = data.map((contract, index) => {
+            //     return {
+            //         ...contract,
+            //         no: index + 1
+            //     }
+            // });
+            // if (response.data.data.length) {
+            //     this.setState({ contracts: dataState, loading: false });
+            // }
+        }
     }
     
     handleDelete = key => {

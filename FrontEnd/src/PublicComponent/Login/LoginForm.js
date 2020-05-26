@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from "react-router-dom";
 import './style.css'
-import { Form, Input, Select, Checkbox, Button } from 'antd';
+import { Form, Input, Select, Checkbox, Button, Divider  } from 'antd';
 const { Option } = Select;
 
 export default function LoginForm(props) {
@@ -23,7 +23,7 @@ export default function LoginForm(props) {
         wrapperCol: { span: 8 },
       };
     const tailLayout = {
-        wrapperCol: { offset: 8, span: 16 },
+        wrapperCol: { offset: 5, span: 16 },
       };
 
     const onFinish = values => {
@@ -44,11 +44,8 @@ export default function LoginForm(props) {
                     <button type="button" class="btn btn-primary">Facebook</button>
                 </div>
             </div>
-            <div className="line">
-                <p>or</p>
-            </div>
+            <Divider>or</Divider>
             <Form
-            {...layout}
             name="basic"
             initialValues={{ remember: true }}
             onFinish={handleEnter}

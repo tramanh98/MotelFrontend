@@ -30,25 +30,6 @@
     background-color: #45a049;
   }
   
-  /* .container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  } */
-  
-  .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-  }
-  
-  .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-  }
-  
-  /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
@@ -103,8 +84,11 @@
   color: rgb(54, 57, 64);
 }
 .profile{
-  margin-top: 20px;
+  margin-top: 40px;
 }
-.secondpart{
-  margin-top: 20px;
+
+.btn-submit-profile
+{
+    width: 100%;
+    text-align: right;
 }

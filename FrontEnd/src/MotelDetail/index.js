@@ -82,8 +82,7 @@ export default class MotelDetail extends Component {
                         <div className="col-lg-9">
                             <div className="row ml-title">
                                 <div className="col-lg-9">
-                                    <Tag color="magenta">Căn hộ</Tag>
-                                    <h3>Golden Palace</h3>
+                                    <h3>Cho thuê phòng trọ</h3>
                                 </div>
                             </div>
                             <div>
@@ -96,46 +95,34 @@ export default class MotelDetail extends Component {
                             <div className="images">
                                 <ImageGallery items={images} />
                             </div>
-                            <div className="row intro">
-                                <h3 className="col-md-12">Sơ lược về nhà trọ</h3>
-                                <div className="col-md-8 quickview">
+                            <hr/>
+                            <div>
+                                <h4>Thông tin cơ bản</h4>
+                                <GeneralInfor/>
+                            </div>
+                            <hr/>
+                            <div>
+                                <h4>Thông tin mô tả</h4>
+                                <div>
                                     <p>Only 400 metres from the sandy Bačvice Beach, Apartment Darka is set in a traditional stone house dating back from the 1891 and offers air-conditioned accommodation with free WiFi access. The property is 650 metres from the UNESCO-protected Palace of Diocletian.
                                     The apartment comprises a sofa and a flat-screen TV, as well as an equipped kitchen with a dining table. Featuring a shower, private bathroom also comes with a hairdryer.
                                     Split Ferry Port, where are also located the Main Bus and Train Station, is 550 metres away. Apartment Darka is 2.4 km from Poljud Stadium. Split Airport is at a distance of 25 km.
                                 Đây là khu vực ở Split mà khách yêu thích, theo các đánh giá độc lập.</p>
                                 </div>
-                                <div className="col-md-4 map">
-                                    <div id="map-container-google-1" class="z-depth-1-half map-container-5" style={{ height: '250px' }}>
-                                        <iframe src={'https://maps.google.com/maps?q=Madryt&t=&z=13&ie=UTF8&iwloc=&output=embed'} frameborder="1"
-                                            style={{ border: '0' }} allowfullscreen></iframe>
-                                    </div>
+                            </div>
+                            <hr/>
+                            <div className="map">
+                                <h4>Bản đồ</h4>
+                                <div id="map-container-google-1" class="z-depth-1-half map-container-5" style={{ height: '400px' }}>
+                                    <iframe src={'https://maps.google.com/maps?q=Madryt&t=&z=13&ie=UTF8&iwloc=&output=embed'} frameborder="1"
+                                        style={{ border: '0' }} allowfullscreen></iframe>
                                 </div>
-                            </div>
-                            <div>
-                                <h4>Thông tin cơ bản</h4>
-                                <GeneralInfor/>
-                            </div>
-                            <div className="around">
-                                <h3>Liên hệ</h3>
-                                <Row justify="space-between">
-                                    <Col span={4}>Chủ sở hữu</Col>
-                                    <Col span={18}>Nguyễn Văn A</Col>
-                                    <Col span={4}>Liên lạc</Col>
-                                    <Col span={18}>
-                                        <div>
-                                            <i class="fab fa-facebook-square"></i> duonganh.1234
-                                        </div>
-                                        <div>
-                                            <i class="fas fa-mobile"></i> 01245682366
-                                        </div>
-                                    </Col>
-                                </Row>
                             </div>
                         </div>
                     </div>
                     
                     <div style={{margin: '50px 0'}}>
-                    <h3>Có thể bạn quan tâm</h3>
+                    <h3>Các loại phổ biến</h3>
                         <SliderMotel/> 
                     </div>
                 </div>

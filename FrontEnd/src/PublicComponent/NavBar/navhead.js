@@ -40,7 +40,7 @@ const Profile = () => {
     const { onLogout } = useAuthContext();
     const history = useHistory();
     const handleClick = () => {
-        history.push("/");
+        // history.push("/");
         onLogout();
     };
 
@@ -112,7 +112,8 @@ class NavHead extends Component  {
                     <Link className="navbar-brand" to="/home">2H<span><HomeOutlined /></span>ME</Link>
                 </div>
                 <div class="p-2">
-                        <Button onClick={this.handlePost}>Đăng phòng của bạn</Button>
+                        {/* <Button onClick={this.handlePost}>Đăng phòng của bạn</Button> */}
+                        <button onClick={this.handlePost} style={{width: "fit-content"}} type="button" class="btn btn-outline-dark">Đăng phòng của bạn</button>
                 </div>
                 <div class="p-2">
                     <If condition={!user} component={Loginus}  props={{

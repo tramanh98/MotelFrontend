@@ -9,12 +9,12 @@ export default function GeneralInfor(props) {
             >
                 <Descriptions.Item label="Đối tượng">Tất cả</Descriptions.Item>
                 <Descriptions.Item label="Diện tích">35 m2</Descriptions.Item>
-                <Descriptions.Item label="Giá cho thuê">$80.00</Descriptions.Item>
+                <Descriptions.Item label="Giá cho thuê">1.000.000 VND/tháng</Descriptions.Item>
                 <Descriptions.Item label="Loại phòng">Căn hộ</Descriptions.Item>
-                <Descriptions.Item label="Status" span={2}>
-                    <Badge status="processing" text="Còn 3 phòng" />
-                </Descriptions.Item>
+                <Descriptions.Item label="Chủ sở hữu">Nguyễn Văn A</Descriptions.Item>
+                <Descriptions.Item label="Liên lạc">01245678952</Descriptions.Item>
                 <Descriptions.Item label="Địa chỉ" span={2}>321/456 đường Hoàng hoa Thám, P.BTĐ, Q.BT</Descriptions.Item>
+
             </Descriptions>
         </div>
     )

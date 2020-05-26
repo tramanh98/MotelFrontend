@@ -35,7 +35,7 @@ export default class Login extends Component {
     });
     const { data } = response;
     const { user, onLogin } = this.context;
-    console.log("response from server:", response.data.key);
+    console.log("response from server:", response);
     if (typeof data.key !== "undefined") {
       console.log("login successful");
       this.setState({
@@ -48,9 +48,6 @@ export default class Login extends Component {
       this.props.reset();
       const dt = { username: username1, token: data.key }
       onLogin({ user: dt });
-      // const { redirectToRefer } = this.state;
-      // const { history, location } = this.props;
-      // redirectToRefer ? history.push(location.state.from.pathname) : history.push('/');
     }
     else {
       this.setState({ MessageOpen: true, MessageText: response.data.message });

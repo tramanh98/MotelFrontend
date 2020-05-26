@@ -16,16 +16,17 @@ export default function MotelFrame() {
             </Col>
             <Col span={16} style={{padding: '0 10px'}}>
                 <div className="mt-title">
-                    <Tag color="magenta">Căn hộ</Tag>
                     <Link to="/detail/5" className="subnav_link" >
-                        <h4>Golden Palace</h4>
+                        <h4>Cho thuê căn hộ</h4>
                     </Link>
                 </div>
+                
                 <div className="mt-addr">
                     <EnvironmentTwoTone style={{fontSize: '20px'}} />
                     <p>21/45/52 đường số 8, Phường 8, Quận 8, HCM</p>
                 </div>
-                <p className="mt-price">3.4 triệu/tháng</p>
+                <div>Loại: <Tag color="magenta">Căn hộ</Tag></div>
+                <div>Giá: <span className="mt-price">3.000.000 VND/tháng</span></div>
                 <p className="mt-area">Diện tích: <strong>80m²</strong></p>
                 
             </Col>

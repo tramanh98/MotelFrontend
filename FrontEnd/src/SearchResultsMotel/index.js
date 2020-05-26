@@ -17,14 +17,14 @@ export default class MotelResults  extends Component {
             <Aux>
                 <NavBar/>
                 <div className="container">
-                    <div className="row">
+                    <div className="row srm-fr">
                         <div className="col-lg-3 find">
                             <FilterFind typeft={true}/>
                             {/* <Filter/> */}
                         </div>
                         <div className="col-lg-9">
-                            <h3>Có 2536 chỗ được tìm thấy</h3>
-                            <h5>Quận: {value.dst} Phường: {value.ward} Loại: {value.type}  Gía: {value.prc}  Diện tích: {value.area}</h5>
+                            <h4 style={{marginTop: "20px"}}>Có 2536 chỗ được tìm thấy</h4>
+                            {/* <h5>Quận: {value.dst} Phường: {value.ward} Loại: {value.type}  Gía: {value.prc}  Diện tích: {value.area}</h5> */}
                             <div className="results">
                                 <MotelFrame/>
                                 <MotelFrame/>

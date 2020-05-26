@@ -27,7 +27,7 @@ export default class EditProfile extends Component {
           };
         return (
             <Dashboard>
-            <div className="edt">
+            <div>
                 <h4>Thông tin tài khoản</h4>
                 <Form
                 name="basic"
@@ -95,11 +95,13 @@ export default class EditProfile extends Component {
                             </Form.Item>
                         </div>
                     </div>
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit">
-                        Cập nhập
-                        </Button>
-                    </Form.Item>
+                    <div className="btn-submit-profile">
+                        <Form.Item>
+                            <Button type="primary" htmlType="submit">
+                            Cập nhập
+                            </Button>
+                        </Form.Item>
+                    </div>
                 </Form>
                </div>
             </Dashboard>

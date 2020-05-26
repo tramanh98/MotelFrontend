@@ -67,8 +67,7 @@ export default class FilterFind extends Component {
         return typeft ? (
         <div className="fs-find">
             <h3>Tìm</h3>
-            <form>
-                
+            <div>
                 <Select label={"Quận"} value={IDdst} arrayData={districts}
                 onChange = {this.handleChangeDistrict} type={true} isArr={false}/>
             
@@ -84,38 +83,44 @@ export default class FilterFind extends Component {
                 <Select label={"Mức giá"} value={cst} arrayData={price}
                 onChange = {this.onChangePrice} type={true} isArr={true}/>
 
-                <Link to={'/results?dst='+this.state.IDdst +'&ward='+this.state.IDward+'&type='+this.state.IDtype
-                    +'&prc='+this.state.cst+'&area='+this.state.areas}>
-                    <button type="primary">Tìm</button>
-                </Link>
-                
-            </form>
+                <div style={{width: "100%", textAlign: "center"}}>
+                    <Link to={'/results?dst='+this.state.IDdst +'&ward='+this.state.IDward+'&type='+this.state.IDtype
+                        +'&prc='+this.state.cst+'&area='+this.state.areas}>
+                        <button  class="btn btn-success" type="button">Tìm</button>
+                    </Link>
+                </div>
+            </div>
         </div>
 
     ) :
     (
         <Row justify="space-around">
-            <Select label={"Quận"} value={IDdst} arrayData={districts}
-            onChange = {this.handleChangeDistrict} type={false} isArr={false}
-            />
-            <Select label={"Phường"} value={IDward} arrayData={wards[IDdst].name}
-            onChange = {this.handleChangeWard} type={false}  isArr={true}
-            />
-            <Select label={"Dịch vụ"} value={IDtype} arrayData={type}
-            onChange = {this.handleChangeService} type={false}  isArr={true}
-            />
-            <Select label={"Diện tích"} value={areas} arrayData={dientich}
-            onChange = {this.handleChangeArea} type={false} isArr={true}
-            />
-            <Select label={"Mức giá"} value={cst} arrayData={price}
-            onChange = {this.onChangePrice} type={false} isArr={true}/>
+            <Col span={4}>
+                <Select label={"Quận"} value={IDdst} arrayData={districts}
+                onChange = {this.handleChangeDistrict} type={false} isArr={false}/>
+            </Col>
+            <Col span={4}>
+                <Select label={"Phường"} value={IDward} arrayData={wards[IDdst].name}
+                onChange = {this.handleChangeWard} type={false}  isArr={true}/>
+            </Col>
+            <Col span={4}>
+                <Select label={"Dịch vụ"} value={IDtype} arrayData={type}
+                onChange = {this.handleChangeService} type={false}  isArr={true}/>
+            </Col>
+            <Col span={4}>
+                <Select label={"Diện tích"} value={areas} arrayData={dientich}
+                onChange = {this.handleChangeArea} type={false} isArr={true}/>
+            </Col>
+            <Col span={4}>
+                <Select label={"Mức giá"} value={cst} arrayData={price}
+                onChange = {this.onChangePrice} type={false} isArr={true}/>
+            </Col>
             
-            
-            <Col className="btn-find" span={1}>
-            <Link to={'/results?dst='+this.state.IDdst +'&ward='+this.state.IDward+'&type='+this.state.IDtype
-            +'&prc='+this.state.cst+'&area='+this.state.areas}>
-                <button type="primary">Tìm</button>
-            </Link>
+            <Col className="btn-find" span={1} >
+                <Link to={'/results?dst='+this.state.IDdst +'&ward='+this.state.IDward+'&type='+this.state.IDtype
+                +'&prc='+this.state.cst+'&area='+this.state.areas}>
+                    <button style={{width: "100%", height: "100%", padding: 0, margin:0}} class="btn btn-success" type="button">Tìm</button>
+                </Link>
             </Col>
         </Row>
     )

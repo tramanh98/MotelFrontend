@@ -131,7 +131,7 @@ export default class MotelType extends Component {
                         <SliderMotel/>
                     </div>
                     
-                    <Row justify={"space-between"} style={{margin: '40px 0'}}>
+                    <Row justify={"space-between"} style={{margin: '20px 0'}}>
                         <Col span={16} style={{padding: '0 10px 0 0'}}>
                             <div className="d-flex align-items-end  hit-tt" style={{padding:0, margin: 0}}>
                                 <div className="mr-auto p-2" style={{padding:0, margin: 0}}><div className="fct">Nổi bật</div></div>

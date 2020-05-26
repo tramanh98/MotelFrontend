@@ -9,16 +9,17 @@ class Banner extends Component {
   render() {
     return (
     <div className="ctn">
-      {/* <div className="banner">
-        <div><img src="../img/banner.jpg" alt="Norway" style={{width: '100%', height: "100px"}}></img></div>
-
-            
-        </div> */}
+      <div className="banner">
+        <img src="../img/banner/hcmbanner.jpg" alt="Norway" style={{width: '100%'}}></img>
+ 
+      
         <div id="background-filter">
-                <Form className="filter" name="complex-form" >
-                    <FilterFind typeft={false} />
-                </Form>
-            </div>
+              <div id="bg-title">FIND YOUR MOTEL</div>
+              <Form className="filter" name="complex-form" >
+                  <FilterFind typeft={false} />
+              </Form>
+        </div>
+        </div>
     </div>
         
     );

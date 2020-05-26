@@ -1,9 +1,19 @@
-import { Menu, Input, Divider } from 'antd';
+import { Menu, Input, Divider, Dropdown } from 'antd';
 import React, { Component } from "react";
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import './style.css'
-const { SubMenu } = Menu;
+import { DownOutlined } from '@ant-design/icons';
+import { Link } from "react-router-dom";
+import districts from '../../data/districts.json'
+import wards from '../../data/wards.json'
+import type from '../../data/type.json'
+import dientich from '../../data/dientich.json'
+import price from '../../data/price.json'
+import Aux from '../../others/HOC/auxiliary'
 const { Search } = Input;
+
+  
+  
 export default class NavFoot extends Component {
     
     state = {
@@ -18,28 +28,91 @@ export default class NavFoot extends Component {
     };
     render() {
         return (
-                <nav class="navbar navbar-expand-sm sticky-top nv">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <span class="navbar-toggler-icon"></span>
+                <nav className="navbar navbar-expand-sm sticky-top nv">
+                    <button style={{float: "left"}}  className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span style={{color: "white"}} className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>    
-                        </ul>
+                    <div className="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <a className="nav-link font-navbar" href="#"><i className="fa fa-fw fa-home"></i> Home</a>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link font-navbar" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Khu vực
+                                </a>
+                                <div className="dropdown-menu">
+                                    <div className="row local" >
+                                        {
+                                            districts.map((dst, index) => (
+                                                index!=0?
+                                                <div className="col-lg-3">
+                                                    <Link className="dropdown-item" to="/">{dst.name}</Link>
+                                                </div>:''
+                                                
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link font-navbar" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Loại phòng
+                                </a>
+                                <div className="dropdown-menu">
+                                {
+                                    type.map((obj, index) => (
+                                        index!=0?
+                                        <Link className="dropdown-item" to="/">{obj}</Link>:''
+                                    ))
+                                }
+                                </div>
+                            </li> 
+                            <li className="nav-item dropdown">
+                                <a className="nav-link font-navbar" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Diện tích
+                                </a>
+                                <div className="dropdown-menu">
+                                {
+                                    dientich.map((obj, index) => (
+                                        index!=0?
+                                        <Link className="dropdown-item" to="/">{obj}</Link>:''
+                                    ))
+                                }
+                                </div>
+                            </li> 
+                            <li className="nav-item dropdown">
+                                <a className="nav-link font-navbar" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Mức giá
+                                </a>
+                                <div className="dropdown-menu">
+                                {
+                                    price.map((obj, index) => (
+                                        index!=0?
+                                        <Link className="dropdown-item" to="/">{obj}</Link>:''
+                                    ))
+                                }
+                                </div>
+                            </li> 
+                            <li className="nav-item">
+                                <a className="nav-link font-navbar" href="#">
+                                    Tin mới nhất
+                                </a>
+                            </li>   
+                            <li className="nav-item">
+                                <a className="nav-link font-navbar" href="https://phongtro123.com/huong-dan-su-dung">
+                                    Hướng dẫn
+                                </a>
+                            </li> 
+                        </ul> 
                     </div>
                     <Search
-                    placeholder="Search"
-                    onSearch={value => console.log(value)}
-                    style={{ width: 250, borderRadius: "20px" }}
-                    /> 
+                        placeholder="Search"
+                        onSearch={value => console.log(value)}
+                        className="navbar-search"
+                        style={{ width: 250, borderRadius: "20px" }}
+                    />
+
  
                 </nav>
            

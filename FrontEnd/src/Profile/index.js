@@ -48,7 +48,7 @@ export const Dashboard = props => {
                             <FilterFind typeft={true} />
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={18} className="secondpart">
+                    <Col className="gutter-row" span={18}>
                         {props.children}
                     </Col>
 

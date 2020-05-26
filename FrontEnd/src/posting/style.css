@@ -6,7 +6,7 @@
     padding-bottom: 20px ;
 }
 .titleframe{
-    background-color: lightseagreen;
+    background-color: #72746c;
     color: white;
     padding: 10px;
     font-weight: bold;
@@ -19,4 +19,12 @@
 }
 .formpost{
     margin: 20px 0;
+}
+
+.posting{
+    margin-top: 30px;
+}
+.btn-submit-post{
+    text-align: center;
+    width: 100%;
 }
