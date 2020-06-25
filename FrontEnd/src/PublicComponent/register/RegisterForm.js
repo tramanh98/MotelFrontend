@@ -10,9 +10,10 @@ import {
   Checkbox,
   Button,
   AutoComplete,
+  notification,
 } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-
+import axios from 'axios';
 const { Option } = Select;
 
 const formItemLayout = {
@@ -49,22 +50,34 @@ const tailFormItemLayout = {
 export  const RegistrationForm = () => {
   const [form] = Form.useForm();
 
-  const onFinish = values => {
-    console.log('Received values of form: ', values);
+  const onFinish = async (values) => {
+    console.log('Received values of form: ', values.username);
+    try {
+      const response = await axios.post(`http://127.0.0.1:8000/auth/registration/`, {
+      username: String(values.username),
+      email: "tramanh555456852@gmail.com",
+      password1: String(values.password1),
+      password2: String(values.password2),
+      
+    });
+    console.log(response)
+    if(response.status === 201){
+      notification["success"]({
+        title:"success",
+        message:"Register Successfully"
+      })
+    }   
+    } catch (error) {
+      console.log("onFinish -> error", error.response)
+      notification["error"]({
+        title:"Error",
+        message:JSON.stringify(error.response.data)
+      })
+    }
+    
   };
 
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select
-        style={{
-          width: 70,
-        }}
-      >
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    </Form.Item>
-  );
+ 
 
 
   return (
@@ -105,7 +118,7 @@ export  const RegistrationForm = () => {
       </Form.Item>
 
       <Form.Item
-        name="password"
+        name="password1"
         label="Password"
         rules={[
           {
@@ -119,9 +132,9 @@ export  const RegistrationForm = () => {
       </Form.Item>
 
       <Form.Item
-        name="confirm"
+        name="password2"
         label="Confirm Password"
-        dependencies={['password']}
+        dependencies={['password1']}
         hasFeedback
         rules={[
           {
@@ -130,7 +143,7 @@ export  const RegistrationForm = () => {
           },
           ({ getFieldValue }) => ({
             validator(rule, value) {
-              if (!value || getFieldValue('password') === value) {
+              if (!value || getFieldValue('password1') === value) {
                 return Promise.resolve();
               }
 
@@ -140,23 +153,6 @@ export  const RegistrationForm = () => {
         ]}
       >
         <Input.Password />
-      </Form.Item>
-      <Form.Item
-        name="phone"
-        label="Phone Number"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your phone number!',
-          },
-        ]}
-      >
-        <Input
-          addonBefore={prefixSelector}
-          style={{
-            width: '100%',
-          }}
-        />
       </Form.Item>
 
       <Form.Item

@@ -94,29 +94,29 @@ export default class FilterFind extends Component {
 
     ) :
     (
-        <Row justify="space-around">
-            <Col span={4}>
+        <Row gutter={[16,16]} justify="space-around">
+            <Col xs={18} sm={20} md={6} lg={8} xl={4}>
                 <Select label={"Quận"} value={IDdst} arrayData={districts}
                 onChange = {this.handleChangeDistrict} type={false} isArr={false}/>
             </Col>
-            <Col span={4}>
+            <Col xs={18} sm={20} md={6} lg={8} xl={4}>
                 <Select label={"Phường"} value={IDward} arrayData={wards[IDdst].name}
                 onChange = {this.handleChangeWard} type={false}  isArr={true}/>
             </Col>
-            <Col span={4}>
+            <Col xs={18} sm={20} md={6} lg={8} xl={4}>
                 <Select label={"Dịch vụ"} value={IDtype} arrayData={type}
                 onChange = {this.handleChangeService} type={false}  isArr={true}/>
             </Col>
-            <Col span={4}>
+            <Col xs={18} sm={20} md={6} lg={8} xl={4}>
                 <Select label={"Diện tích"} value={areas} arrayData={dientich}
                 onChange = {this.handleChangeArea} type={false} isArr={true}/>
             </Col>
-            <Col span={4}>
+            <Col xs={18} sm={20} md={6} lg={8} xl={4}>
                 <Select label={"Mức giá"} value={cst} arrayData={price}
                 onChange = {this.onChangePrice} type={false} isArr={true}/>
             </Col>
             
-            <Col className="btn-find" span={1} >
+            <Col className="btn-find" xs={10} sm={5} md={6} lg={8} xl={2}>
                 <Link to={'/results?dst='+this.state.IDdst +'&ward='+this.state.IDward+'&type='+this.state.IDtype
                 +'&prc='+this.state.cst+'&area='+this.state.areas}>
                     <button style={{width: "100%", height: "100%", padding: 0, margin:0}} class="btn btn-success" type="button">Tìm</button>

@@ -55,3 +55,16 @@
     font-weight: 700;
     line-height: 1.2;
 }
+
+.my-facebook-button-class{
+    background-color: rgb(76, 105, 186);
+    padding: 10px 30px;
+    
+    color: white;
+    font-weight: bold;
+    margin: 0 30px;
+}
+.google-button{
+    font-weight: bold !important;
+    color: white;
+}

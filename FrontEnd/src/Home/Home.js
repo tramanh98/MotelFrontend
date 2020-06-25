@@ -9,9 +9,10 @@ class Home extends Component {
   render() {
     return (
       <Aux>
-        <NavBar />
+        <NavBar home={true}/>
+        <Banner />
         <div className="container">
-            <Banner />
+            
             <MotelType/>
         </div>
       </Aux>

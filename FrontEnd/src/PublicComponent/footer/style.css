@@ -1,3 +1,39 @@
 @charset "UTF-8";
 
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700);
+.contact-with-us h6 {
+    font-size: small;
+    /* background-color: firebrick; */
+}
+/* .icon-social{
+    background-color: honeydew;
+} */
+.icon-social i {
+    font-size: small;
+    /* background-color: green; */
+}
+/* .footer-react {
+    margin: 0 !important;
+    padding: 0 !important;
+} */
+/* mobile */
+@media screen and (max-width: 600px) {
+    .footer-react hr{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .footer-react h6{
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: small;
+    }
+    .footer-react p{
+        padding: 0;
+        margin: 0;
+        margin-top: 5px;
+        font-size: small;
+    }
+    .font-footer{
+        font-size: small;
+    }
+}

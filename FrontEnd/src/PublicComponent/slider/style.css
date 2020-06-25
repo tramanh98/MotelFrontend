@@ -1,4 +1,4 @@
-.ctn .content {
+.content-slider {
     position: absolute; /* Position the background text */
     background: rgb(0, 0, 0); /* Fallback color */
     background: rgba(0, 0, 0, 0.644); /* Black background with 0.5 opacity */
@@ -10,3 +10,8 @@
     text-align: center;
     padding-top: 10px;
   }
+
+.slider-slickcss{
+  padding: 0 !important;
+
+}

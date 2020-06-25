@@ -10,10 +10,10 @@ const { Meta } = Card;
 export const Dashboard = props => {
     return (
         <Aux>
-            <NavBar />
+            <NavBar home={false}/>
             <div className="container">
                 <Row gutter={16} className="profile">
-                    <Col className="gutter-row" span={6}>
+                    <Col className="gutter-row dsh-mobile" span={6}>
                         <div className="menu_profile">
                             <div class="card">
                                 <div class="card-header">
@@ -44,11 +44,8 @@ export const Dashboard = props => {
                                 </div>
                             </div>
                         </div>
-                        <div className="findMotel">
-                            <FilterFind typeft={true} />
-                        </div>
                     </Col>
-                    <Col className="gutter-row" span={18}>
+                    <Col xs={24} sm={24} md={22} lg={18} xl={18} className="gutter-row">
                         {props.children}
                     </Col>
 

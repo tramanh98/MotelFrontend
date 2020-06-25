@@ -5,7 +5,8 @@
     },
     {
         "name": "Quận 1",
-        "nameurl": "quan-1"
+        "nameurl": "quan-1",
+        "coordinates": [10.810583,106.709145]
     },
     {
         "name": "Quận 2",
@@ -57,7 +58,8 @@
     },
     {
         "name": "Quận Bình Thạnh",
-        "nameurl": "quan-4"
+        "nameurl": "quan-4",
+        "coordinates": [10.810583,106.709145]
     },
     {
         "name": "Quận Gò Vấp",

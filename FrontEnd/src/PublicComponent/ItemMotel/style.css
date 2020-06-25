@@ -4,7 +4,6 @@
     margin-bottom: 20px; 
     padding: 10px ;
     background-color: #cfc5ad59;
-
 }
 .mt-title
 {
@@ -27,7 +26,6 @@
     width: fit-content;
     align-self: center;
     margin: 0 5px;
-
 }
 
 .mt-addr{
@@ -46,9 +44,7 @@
     color: rgb(241, 9, 40);
     margin: 0;
 }
-.mt-area{
-    
-}
+
 /************** đây là khung hình ảnh ***********/
 .img
 {
@@ -72,3 +68,30 @@ a.subnav_link:visited {
   
 a.subnav_link:active {
     color: black; }
+
+
+    /* for mobile */
+@media screen and (max-width: 600px) {
+    .mt-title h4{
+        font-size: medium;
+        font-weight: bold;
+        margin: 0;
+        
+    }
+    .mt-content div{
+        font-size: small;
+    }
+    /* .container{
+        padding: 0 !important;
+    } */
+    .item-mt
+    {
+        border: 0.02rem solid #f5c86659;
+        margin-bottom: 5px; 
+        padding: 2px ;
+        background-color: #cfc5ad59;
+    }
+}
+.mt-content div{
+    color: rgb(22, 19, 19);
+}

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import './style.css';
 import If from "../../others/helper/if";
 import NavHead from './navhead';
-import NavFoot from './navfoot'
+import NavFoot from './navfootres'
 import Aux from '../../others/HOC/auxiliary'
 
 
@@ -22,7 +22,7 @@ class NavBar extends Component {
         return (
         <Aux>
             <NavHead/>
-            <NavFoot/>
+            <NavFoot home={this.props.home}/>
         </Aux>
         );
     }

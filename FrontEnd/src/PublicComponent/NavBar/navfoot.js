@@ -29,10 +29,8 @@ export default class NavFoot extends Component {
     render() {
         return (
                 <nav className="navbar navbar-expand-sm sticky-top nv">
-                    <button style={{float: "left"}}  className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <span style={{color: "white"}} className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="collapsibleNavbar">
+                    
+                    <div className="navother">
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <a className="nav-link font-navbar" href="#"><i className="fa fa-fw fa-home"></i> Home</a>

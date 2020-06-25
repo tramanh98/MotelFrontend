@@ -11,7 +11,7 @@ export default function Select(props) {
         return type ? (
             <div>
                 <label className="bt" for="district">{props.label}</label>
-                <select value={props.value}  onChange={(e) => props.onChange(e)} class="custom-select">
+                <select value={props.value}  onChange={(e) => props.onChange(e)} className="custom-select">
                     {
                         props.isArr ? 
                         props.arrayData.map((obj, index) => ( 

@@ -10,28 +10,29 @@ import Contract from '../../PublicComponent/contract/index'
 import { Link } from "react-router-dom";
 import SliderMotel from '../../PublicComponent/slider/index'
 
-const { Content, Footer } = Layout;
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", borderRadius: '50%' }}
-        onClick={onClick}
-      />
-    );
-  }
+// const { Content, Footer } = Layout;
+// function SampleNextArrow(props) {
+//     const { className, style, onClick } = props;
+//     return (
+//       <div
+//         className={className}
+//         style={{ ...style, display: "block", borderRadius: '50%' }}
+//         onClick={onClick}
+//       />
+//     );
+//   }
   
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{  ...style, display: "block", borderRadius: '50%' }}
-        onClick={onClick}
-      />
-    );
-  }
+//   function SamplePrevArrow(props) {
+//     const { className, style, onClick } = props;
+//     return (
+//       <div
+//         className={className}
+//         style={{  ...style, display: "block", borderRadius: '50%' }}
+//         onClick={onClick}
+//       />
+//     );
+//   }
+
 export default class MotelType extends Component {
     constructor(props) {
         super(props);
@@ -97,42 +98,43 @@ export default class MotelType extends Component {
 
     render()
     {
-        const settings = {
-            dots: false,
-            infinite: true,
-            speed: 500,
-            swipeToSlide: true,
-            slidesToShow: 4,
-            nextArrow: <SampleNextArrow />,
-            prevArrow: <SamplePrevArrow />
-          };
+        // const settings = {
+        //     dots: false,
+        //     infinite: true,
+        //     speed: 500,
+        //     swipeToSlide: true,
+        //     slidesToShow: 4,
+        //     nextArrow: <SampleNextArrow />,
+        //     prevArrow: <SamplePrevArrow />
+        //   };
 
-        // const listItems = this.state.listMotels.map((item,index) =>
-        //     <ListMotels key={index} motel={item} />
+        // // const listItems = this.state.listMotels.map((item,index) =>
+        // //     <ListMotels key={index} motel={item} />
+        // // );
+        // const listImg = this.state.list_img.map((item, index)=>
+        //     <div className="col">
+        //         <div className="ctn">
+        //             <img src={item.img} alt="Quantrimang.com" />
+        //             <Link to={'/results?type=' + item.queryType}>
+        //                 <div class="content">
+        //                     <h5 style={{color: "white"}}>{item.type}</h5>
+        //                     <p style={{color: "white", Margin: 0}}>45236 phòng</p>
+        //                 </div>
+        //             </Link>
+        //         </div>
+        //     </div>
         // );
-        const listImg = this.state.list_img.map((item, index)=>
-            <div className="col">
-                <div className="ctn">
-                    <img src={item.img} alt="Quantrimang.com" />
-                    <Link to={'/results?type=' + item.queryType}>
-                        <div class="content">
-                            <h5 style={{color: "white"}}>{item.type}</h5>
-                            <p style={{color: "white", Margin: 0}}>45236 phòng</p>
-                        </div>
-                    </Link>
-                </div>
-            </div>
-        );
+
         return (
 
-            <div id="service" class="section-padding">
-                    <div className="hm-all-type" style={{margin: "0 0 10px 10px"}}>Tìm theo loại nhà trọ</div>
+            <div>
+                    <div className="hm-all-type" style={{margin: "0 0 10px 10px"}}>Loại phổ biến</div>
                     <div>
                         <SliderMotel/>
                     </div>
                     
-                    <Row justify={"space-between"} style={{margin: '20px 0'}}>
-                        <Col span={16} style={{padding: '0 10px 0 0'}}>
+                    <Row justify="center" style={{margin: '20px 0'}}>
+                        <Col xs={24} sm={24} md={22} lg={16} xl={16}>
                             <div className="d-flex align-items-end  hit-tt" style={{padding:0, margin: 0}}>
                                 <div className="mr-auto p-2" style={{padding:0, margin: 0}}><div className="fct">Nổi bật</div></div>
                                 <div className="p-2" style={{padding: 0, margin: 0}}><Link to={'/results?q=react&limit=3'} style={{padding: 0, margin: 0}} >Xem thêm</Link></div>
@@ -148,7 +150,7 @@ export default class MotelType extends Component {
 
 
                         </Col>
-                        <Col span={7} style={{padding: '0 0 0 10px'}}>
+                        <Col xs={22} sm={22} md={22} lg={7} xl={7} >
                             <News/>
                             <img src="./img/ads.png" style={{width: '100%'}} />
                             <Contract/>

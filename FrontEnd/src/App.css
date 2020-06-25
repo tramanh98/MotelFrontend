@@ -17,7 +17,7 @@
   background: rgb(253, 58, 58);
 }
 
-.navbar-brand {
+/* .navbar-brand {
 	height: inherit;
 	font-family: 'Josefin Slab';
 	font-weight: 700;
@@ -26,7 +26,7 @@
   font-size: 42px;
   margin-top: 5px;
   color: #e43c5c;
-}
+} */
 .menu
 {
   float: right;

@@ -4,6 +4,7 @@ import { Row, Col, Tag, Button } from 'antd';
 import { Table, Popconfirm } from 'antd';
 import axios from 'axios';
 import { AuthContext } from '../../../others/contexts/auth.context'
+import '../../style.css'
 
 export default class ListRoom extends React.Component {
     constructor(props) {
@@ -119,9 +120,9 @@ export default class ListRoom extends React.Component {
             const token = user.token;
             console.log("Token " + token)
 
-            const response = await axios.get(`http://127.0.0.1:8000/user/`, {
+            const response = await axios.get(`http://127.0.0.1:8000/myprofile`, {
                 headers: {
-                    'Authorization': 'Token ' + token
+                    'Authorization': 'Bearer ' + token
                 }
             }).then(response => {
                 console.log(response.data);
@@ -213,11 +214,14 @@ export default class ListRoom extends React.Component {
         return (
             <div>
                 <h4>Bài đăng gần đây</h4>
+                <div className="table-all-post">
                 <Table
                     columns={columns}
                     pagination={{ position: ['bottomRight'] }}
+                    scroll={{x: true}}
                     dataSource={this.state.data}
                 />
+                </div>
             </div>
         );
     }
