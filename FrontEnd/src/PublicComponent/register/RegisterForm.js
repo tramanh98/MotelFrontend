@@ -47,34 +47,16 @@ const tailFormItemLayout = {
   },
 };
 
-export  const RegistrationForm = () => {
+export  const RegistrationForm = (props) => {
   const [form] = Form.useForm();
 
-  const onFinish = async (values) => {
-    console.log('Received values of form: ', values.username);
-    try {
-      const response = await axios.post(`http://127.0.0.1:8000/auth/registration/`, {
-      username: String(values.username),
-      email: "tramanh555456852@gmail.com",
-      password1: String(values.password1),
-      password2: String(values.password2),
-      
-    });
-    console.log(response)
-    if(response.status === 201){
-      notification["success"]({
-        title:"success",
-        message:"Register Successfully"
-      })
-    }   
-    } catch (error) {
-      console.log("onFinish -> error", error.response)
-      notification["error"]({
-        title:"Error",
-        message:JSON.stringify(error.response.data)
-      })
-    }
-    
+
+  /*** register  ***/
+  const onFinish = (values) => {
+
+    props.register(values)
+    // console.log('Received values of form: ', values.username);
+
   };
 
  

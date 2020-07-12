@@ -1,9 +1,9 @@
 .item-mt
 {
-    border: 0.02rem solid #f5c86659;
-    margin-bottom: 20px; 
+    /* border: 0.02rem solid #f5c86659; */
+    margin-bottom: 10px; 
     padding: 10px ;
-    background-color: #cfc5ad59;
+    background-color: #7274731c;
 }
 .mt-title
 {
@@ -55,6 +55,14 @@ img{
     margin: 0;
     width: 100%;
 }
+.contain-img-frame{
+    width: 100%;
+    height: 170px;
+    background-color: rgb(65, 61, 61);
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
 a.subnav_link:link {
     color: #212529;
 }
@@ -89,7 +97,7 @@ a.subnav_link:active {
         border: 0.02rem solid #f5c86659;
         margin-bottom: 5px; 
         padding: 2px ;
-        background-color: #cfc5ad59;
+        /* background-color: #cfc5ad59; */
     }
 }
 .mt-content div{

@@ -6,13 +6,15 @@ import FacebookLogin from 'react-facebook-login';
 import Aux from '../../others/HOC/auxiliary'
 const { Option } = Select;
 
-export default function LoginForm(props) {// props = {login:'',username:''}
+export default function LoginForm(props) {
     const inputElementRef = useRef(null);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     useEffect(() => {
         inputElementRef.current.focus();
     }, []);
+
+
     const handleEnter = () => {
         props.login(username, password);
 
@@ -34,8 +36,6 @@ export default function LoginForm(props) {// props = {login:'',username:''}
     const onFinishFailed = errorInfo => {
         console.log('Failed:', errorInfo);
     };
-
-
 
     return (
         <Aux>

@@ -2,16 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 .navbar-brand {
-	height: inherit;
-	font-family: 'Josefin Slab' !important;
-	font-weight: bolder !important;
-	text-transform: uppercase;
-  font-size: 40px !important;
-  color: blue;
   margin: 0 !important;
   padding: 0 !important;
   width: fit-content;
-  z-index: 10 !important;
 }
 .sticky-top
 {
@@ -42,11 +35,17 @@
 {
   z-index: 100 !important;
 }
-
-
+.mr-auto , .p-2 {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.navbar-search{
+  margin: 5px 0;
+}
 .nav-link{
   color: white !important;
-  padding: 10px 0 !important;
+  padding: 7px 0 5px 0 !important;
+  letter-spacing: 0.0625em;
 }
 .navft
 {
@@ -75,14 +74,14 @@
 
   }
   .transcl{
-    background-color: #caad6f !important;
+    background-color: #83a09a !important;
   }
-  .navbar{
+  /* .navbar{
     padding: 0 !important;
     background-color: #caad6f !important;
-  }
+  } */
   .font-navbar{
-    font-family: "Montserrat" !important;
+    /* font-family: "Montserrat" !important; */
     text-transform: uppercase;
     font-weight: 500 !important;
     font-size: 0.75rem !important;
@@ -97,7 +96,7 @@
   .navbar
   {
     padding: 0 15px 0 10px !important;
-    background-color: #caad6f !important;
+    background-color: #83a09a !important;
   }
 
 
@@ -111,14 +110,14 @@
 
   }
   .transcl{
-    background-color: #caad6f !important;
+    background-color: #83a09a !important;
   }
   .navbar{
     padding: 0 25px 0 20px !important;
-    background-color: #caad6f !important;
+    background-color: #83a09a !important;
   }
   .font-navbar{
-    font-family: "Montserrat" !important;
+    /* font-family: "Montserrat" !important; */
     text-transform: uppercase;
     font-weight: 400;
     font-size: 0.9rem !important;
@@ -139,15 +138,15 @@
 
   }
   .transcl{
-    background-color: #caad6f !important;
+    background-color: #83a09a !important;
   }
   .navbar
   {
     padding: 0 100px !important;
-    background-color: #caad6f !important;
+    background-color: #83a09a  !important;
   }
   .font-navbar{
-    font-family: "Montserrat" !important;
+    font-family: Arial !important;
     text-transform: uppercase;
     font-weight: 500;
     font-size: 1rem !important;
@@ -184,7 +183,7 @@ a.subnav_link:active {
   }
   .navbar{
     padding: 10px 15px !important;
-    background-color: #caad6f !important;
+    background-color: #83a09a !important;
   }
   .navbar-search{
     display: none;

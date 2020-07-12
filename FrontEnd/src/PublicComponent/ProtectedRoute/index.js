@@ -8,7 +8,6 @@ export const ProtectedRoute =  ({ component: Component, ...rest}) => {
         <Route {...rest}
         render = {props => {
             if (user){
-                console.log("đây là route")
                 return <Component { ...props }/>; }
             else {
                 return <Redirect to="/home"/>

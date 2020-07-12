@@ -1,56 +1,55 @@
 import { Modal, Button, Form, Col, Row, Input, Select, DatePicker } from 'antd';
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './style.css';
 import { Link } from "react-router-dom";
 import { RegistrationForm } from './RegisterForm'
 import Aux from '../../others/HOC/auxiliary'
-const { Option } = Select;
+import { Spin } from 'antd';
+import axios from 'axios';
+import { Register_sv } from '../../api/api'
+import { useAuthContext } from "../../others/contexts/auth.context";
 
-export default class Register extends Component {
-  state = {
-    loading: false,
-    visible: false,
+export default function Register (props) {
+  const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { onLogin } = useAuthContext();
+
+  const showModal = () => {
+    setVisible(true)
   };
 
-  showModal() {
-    this.setState({
-      visible: true,
-    });
+  const handleCancel = () => {
+    setVisible(false)
   };
 
-  handleOk() {
-    this.setState({ loading: true });
-    setTimeout(() => {
-      this.setState({ loading: false, visible: false });
-    }, 3000);
-  };
+  const createAcc = async (values) =>{
+    const res = await Register_sv(values, onLogin)
+    console.log(res)
+    setVisible(false)
+    setLoading(false)
+  }
 
-  handleCancel(){
-    this.setState({ visible: false });
-  };
+  const register = (values) => {
+    setLoading(true)
+    createAcc(values)
+  }
 
-  
-  render() {
-    const { visible, loading } = this.state;
-    const layout = {
-        labelCol: { span: 8 },
-        wrapperCol: { span: 8 },
-      };
     return (
       <Aux>
         <div>
-          <Button type="link" className="btnlgin" onClick={() => this.showModal()}>ĐĂNG KÍ</Button>
+          <Button type="link" className="btnlgin" onClick={showModal}>ĐĂNG KÍ</Button>
           <Modal
             visible={visible}
             title="Register"
-            onOk={()=>this.handleOk()}
-            onCancel={()=>this.handleCancel()}
+            onCancel={handleCancel}
             footer={null}
           >
-            <RegistrationForm />
+            <Spin tip="Register..." spinning={loading}>
+                <RegistrationForm register={register}/>
+            </Spin>
           </Modal>
         </div>
       </Aux>
     );
-  }
+
 }

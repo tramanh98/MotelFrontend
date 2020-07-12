@@ -1,0 +1,42 @@
+.ctn .content {
+    position: absolute; /* Position the background text */
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.644); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 60%; /* Full width */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding-top: 10px;
+  }
+.hit-tt{
+  padding: 0;
+  margin-bottom: 20px;
+}
+.fct, .hm-all-type{
+  height: fit-content;
+  border-left: 4px solid brown;
+  font-size: x-large;
+  font-weight: bold;
+  padding: 0 10px;
+}
+.list-mt-hot{
+  margin: 0 5px;
+}
+
+/* mobile */
+@media screen and (max-width: 600px) {
+  .fct, .hm-all-type{
+    height: fit-content;
+    border-left: 4px solid brown;
+    font-size: large;
+    font-weight: bold;
+    padding: 0 10px;
+
+  }
+  .home-container{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}

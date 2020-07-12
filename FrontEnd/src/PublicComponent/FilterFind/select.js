@@ -15,11 +15,11 @@ export default function Select(props) {
                     {
                         props.isArr ? 
                         props.arrayData.map((obj, index) => ( 
-                           <option value={index}>{obj}</option>
+                           <option key={index} value={index}>{obj}</option>
                         ))
                         :
                         props.arrayData.map((obj, index) => ( 
-                            <option value={index}>{obj.name}</option>
+                            <option key={index} value={obj.type}>{obj.name}</option>
                          ))
                     }
                 </select>
@@ -28,15 +28,15 @@ export default function Select(props) {
     (
         <Aux>
             {/* <label className="bt" for="district">{props.label}</label> */}
-            <select value={props.value} onChange={(e) => props.onChange(e)} class="custom-select">
+            <select value={props.value} onChange={(e) => props.onChange(e)} className="custom-select">
                 {
                     props.isArr ? 
                     props.arrayData.map((obj, index) => ( 
-                        <option value={index}>{obj}</option>
+                        <option key={index} value={index}>{obj}</option>
                     ))
                     :
                     props.arrayData.map((obj, index) => ( 
-                        <option value={index}>{obj.name}</option>
+                        <option key={index} value={obj.type}>{obj.name}</option>
                     ))
                 }
             </select>

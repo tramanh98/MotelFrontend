@@ -9,13 +9,8 @@ import { Link } from "react-router-dom";
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
-    //   <div
-    //     className={className}
-    //     style={{ ...style, display: "block", borderRadius: '10%' }}
-    //     onClick={onClick}
-    //   />
-    <div className='fas fa-chevron-circle-right' 
-    style={{  ...style, opacity: "0.7", display: "block",color: "white", alignItems: "center", right: "-10px", borderRadius: '20%', fontSize:'40px', position: "absolute", top:"35%", zIndex: '10' }} 
+    <div className='fas fa-chevron-circle-right arrow-slider-next' 
+    style={{  ...style, opacity: "0.9", display: "block",color: "white", alignItems: "center", borderRadius: '20%', position: "absolute", zIndex: '10' }} 
     onClick={onClick} >
     </div>
     );
@@ -24,62 +19,79 @@ function SampleNextArrow(props) {
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
-    //   <div
-    //     className={className}
-    //     style={{  ...style, display: "block", borderRadius: '20%', fontSize:'56px', width: "100px", backgroundColor: "red" }}
-    //     onClick={onClick}
-    //   ></div>
-    <div className='fas fa-chevron-circle-left' 
-    style={{  ...style, opacity: "0.7", display: "block",color: "white",left: "-10px", borderRadius: '20%', fontSize:'40px', position: "absolute", top:"35%", zIndex: '10' }} 
+    <div className='fas fa-chevron-circle-left arrow-slider-prev' 
+    style={{  ...style, opacity: "0.9", display: "block",color: "white", borderRadius: '20%', position: "absolute", zIndex: '10' }} 
     onClick={onClick} >
     </div>
     );
   }
-export default function SliderMotel () {
+export default class SliderMotel extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            slider_mb: ''
+        }
+      }
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener("resize", this.updateWindowDimensions);
+      }
+      
+      componentWillUnmount() {
+        window.removeEventListener("resize", this.updateWindowDimensions);
+      }
+      
+      updateWindowDimensions = () => {
+        if ( window.innerWidth > 700 )
+          this.setState({slider_mb: 4}); 
+        else 
+          this.setState({slider_mb: 2}); // size của mobile
+      };
+    render(){
     const list_img = [{
         type: "Nhà nguyên căn",
-        queryType: "can-ho",
+        queryType: "B",
         img: "../img/categories/cat-5.jpg"
     },
     {
         type: "Chung cư",
-        queryType: "chung-cu",
+        queryType: "C",
         img: "../img/room/chungcu.jpg"
     },
     {
         type: "Phòng trọ",
-        queryType: "nha-tro",
+        queryType: "A",
         img: "../img/room/phongtro.jpg"
     },
     {
         type: "Phòng ở ghép",
-        queryType: "nha-o-ghep",
+        queryType: "E",
         img: "../img/room/nhaoghep.jpg"
     },
     {
         type: "Mặt bằng",
-        queryType: "mat-bang",
+        queryType: "D",
         img: "../img/room/matbang.jpg"
     }]
+    
 
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
         swipeToSlide: true,
-        slidesToShow: 2,
+        slidesToShow: this.state.slider_mb,
         className: "slider-slickcss",
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     };
     const listImg = list_img.map((item, index)=>
-        <div className="col">
+        <div key={index} className="col">
             <div>
                 <img src={item.img} alt="Quantrimang.com" />
-                <Link to={'/results?type=' + item.queryType}>
-                    <div class="content-slider">
+                <Link to={`/results?dst=0&ward=0&type=${item.queryType}&prc=0&area=0`}>
+                    <div className="content-slider">
                         <h5 style={{color: "white"}}>{item.type}</h5>
-                        <p style={{color: "white", margin: 0}}>45236 phòng</p>
                     </div>
                 </Link>
             </div>
@@ -91,4 +103,5 @@ export default function SliderMotel () {
             </Slider>     
                 
     )
+    }
 }

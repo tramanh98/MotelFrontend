@@ -4,9 +4,9 @@ import { withRouter, useHistory } from "react-router-dom";
 import './style.css';
 import If from "../../others/helper/if";
 import { Component } from "react";
-import Register from '../register/register'
-import Login from '../Login/index';
-import Cardhm from '../Card/card';
+import Register from '../Register/register'
+import {Login} from '../Login/index';
+import { NavAvatar } from '../Avatar';
 import { Badge, Popover, Button, Input } from 'antd';
 import { MailOutlined, BellOutlined, HomeOutlined, BellFilled, SearchOutlined } from '@ant-design/icons';
 import { AuthContext, useAuthContext } from "../../others/contexts/auth.context";
@@ -68,7 +68,7 @@ const Profile = () => {
     return (
         <Popover placement="bottom" content={content} trigger="click">
             <Button type="link">
-                <Cardhm />
+                <NavAvatar />
             </Button>
         </Popover>
     );
@@ -106,22 +106,23 @@ class NavHead extends Component  {
 
 
     return (
-        <div className="container navhead" style={{ margin: '0 auto', padding: '0' }}>
-            <div class="d-flex align-items-center" style={{ padding: '0' }}>
-                <div class="mr-auto p-2">
-                    <Link className="navbar-brand" to="/home">2H<span><HomeOutlined /></span>ME</Link>
+        <div className="container navhead">
+            <div className="d-flex align-items-center">
+                <div className="mr-auto p-2" style={{width: "300px"}}>
+                    <Link className="navbar-brand" to="/home" style={{width: "fit-content"}}>
+                        <img src="../img/logo/logo2.png" style={{width: "60%"}}/>
+                    </Link>
                 </div>
-                <div class="p-2">
-                        {/* <Button onClick={this.handlePost}>Đăng phòng của bạn</Button> */}
-                        <button onClick={this.handlePost} style={{width: "fit-content"}} type="button" class="btn btn-outline-dark">Đăng phòng của bạn</button>
+                <div className="p-2">
+                        <button onClick={this.handlePost} style={{width: "fit-content"}} type="button" className="btn btn-outline-dark">Đăng phòng của bạn</button>
                 </div>
-                <div class="p-2">
+                <div className="p-2">
                     <If condition={!user} component={Loginus}  props={{
                         visible: visible, reset: this.resetVisible}
                         }/>
                     <If condition={user} component={ThongBao} />
                 </div>
-                <div class="p-2">
+                <div className="p-2">
                     <If condition={!user} component={Registerus} />
                     <If condition={user} component={Profile} />
                 </div>

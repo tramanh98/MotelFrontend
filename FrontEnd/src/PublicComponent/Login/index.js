@@ -1,220 +1,112 @@
-import { Drawer, Form, Modal, Button, Col, Row, Input, Select, DatePicker } from 'antd';
-import React, { Component } from 'react';
+import { Modal, Button, Select, } from 'antd';
+import React, { Component, useState } from 'react';
 import LoginForm from './LoginForm';
 import { Link, Redirect } from "react-router-dom";
-import { useAuthContext } from "../../others/contexts/auth.context";
-import { Spin, Switch, Alert } from 'antd';
-import axios from 'axios';
 import Aux from '../../others/HOC/auxiliary';
-import AlertMessage from '../AlertMassage';
-import If from '../../others/helper/if';
-import { AuthContext } from '../../others/contexts/auth.context';
 import './style.css'
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
+import { Spin, Alert } from 'antd';
+import {  useAuthContext } from "../../others/contexts/auth.context";
+import { Login_Fb, Login_GG, Login_sv, Register } from '../../api/api'
 const { Option } = Select;
 
 
 
-export default class Login extends Component {
+export const Login = (props) => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      uuid: "",
-      MessageOpen: false,
-      MessageText: "",
-      // redirectToRefer: false,
-      visible: false,
-      loading: false
-    }
-  };
-  // componentDidMount() {
-  //   if(this.props.visible){
-  //     this.setState({
-  //       visible: true
-  //     })
-  //   } 
-  // }
+  const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { onLogin } = useAuthContext()
+  /* login with facebook */
 
-  static contextType = AuthContext;
-  responseFacebook = async (response) => {
+const  loginSocial = async (response, typeacc) => {
     console.log(response);
-    const response2 = await axios.post(`http://127.0.0.1:8000/authgg/convert-token/`, {
-      // access_token: response.accessToken
-      grant_type: "convert_token",
-      client_id:"2595169840730749",
-      client_secret: "93fcc97b1a720b98a6df0462d6ac0ad5",
-      backend: "facebook",
-      token: response.accessToken
-    });
-    this.setState({
-      loading: true
-    })
-    console.log(response2);
-    const { data } = response2;
-    const { user, onLogin } = this.context;
-    if (typeof data.access_token !== "undefined") {
-      console.log("login successful");
-      this.setState({
-        username: response.name,
-        token: data.access_token,
-        MessageOpen: false,
-        visible: false,
-      });
-      if(this.props.visible){
-        this.props.reset();
-      }
+    
+    if(typeacc == "facebook")
+    {
       const dt = {  
-                    iduser:'', 
-                    fname:'', 
-                    lname: '',
-                    email: '',
-                    typeToken: data.token_type,
-                    image: response.picture.data.url,
-                    username: response.name, 
-                    token: data.access_token }
-      onLogin({ user: dt });
+        image: response.picture.data.url,
+        username: response.name, }
+      const res = await Login_Fb(response.accessToken, dt, onLogin)
+      console.log(res)
     }
-    this.setState({
-      loading: false
-    })
-    // else {
-    //   this.setState({ MessageOpen: true, MessageText: response.data.message });
-    // }
-  }
-
-  responseGoogle = async (response) => {
-    console.log(response);
-    const response2 = await axios.post(`http://127.0.0.1:8000/authgg/convert-token/`, {
-
-      // access_token: response.accessToken
-      
-        grant_type: "convert_token",
-        client_id:"311307780250-ns2lg1103qoblsnbmklpr3f8c6d1v53e.apps.googleusercontent.com",
-        client_secret: "_2iQp_APiWURPtKfiibkcvCY",
-        backend: "google-oauth2",
-        token: response.accessToken
-
-    });
-    console.log(response2);
-    const { data } = response2;
-    const { onLogin } = this.context;
-    if (typeof data.access_token !== "undefined") {
-      console.log("login successful");
-      this.setState({
-        username: response.profileObj.name,
-        token: data.key,
-        MessageOpen: false,
-        visible: false,
-      });
-      if(this.props.visible){
-        this.props.reset();
-      }
+    else if (typeacc == "google")
+    {
       const dt = {  
-                    iduser:'', 
-                    fname:'', 
-                    lname: '',
-                    email: '',
-                    image: response.profileObj.imageUrl,
-                    typeToken: data.token_type,
-                    username: response.profileObj.name, 
-                    token: data.access_token 
-                  }
-      onLogin({ user: dt });
+        image: response.profileObj.imageUrl,
+        username: response.profileObj.name, 
+      }
+      const res = await Login_GG(response.accessToken, dt, onLogin)
+      console.log(res)
     }
     
+    setVisible(false)
+    setLoading(false)
+    if(props.visible){
+      props.reset();
+  }
+}
+
+
+  const lgin = async (username, password) =>{
+    const response = await Login_sv(username, password, onLogin)
+    console.log(response)
+  }
+
+  const responseFacebook = (response) =>{
+    setLoading(true)
+    loginSocial(response,"facebook")
+  }
+
+  /* login with google */
+  const responseGoogle = (response) => {
+    setLoading(true)
+    loginSocial(response, "google")   
   } 
-  handleLogin = async (username1, password) => {
-    const response = await axios.post(`http://127.0.0.1:8000/auth/login/`, {
-      username: "",
-      email: username1,
-      password: password
-    });
-    const { data } = response;
-    const { user, onLogin } = this.context;
-    console.log("response from server:", response);
-    if (typeof data.key !== "undefined") {
-      console.log("login successful");
-      this.setState({
-        username: data.user.username,
-        token: data.key,
-        MessageOpen: false,
-        visible: false,
-      });
-      if(this.props.visible){
-        this.props.reset();
-      }
-        
-      const dt = {  iduser:data.user.pk, 
-                    fname:data.user.first_name, 
-                    lname: data.user.last_name,
-                    image: data.user.image,
-                    email: data.user.email,
-                    typeToken: "Token",
-                    username: data.user.username, 
-                    token: data.key 
-                  }
-      onLogin({ user: dt });
-    }
-    else {
-      this.setState({ MessageOpen: true, MessageText: response.data.message });
-    }
+
+
+  /* login  */
+  const handleLogin = (username, password) => {
+    setLoading(true)
+    lgin(username, password)
   };
-  handleClose = () => {
-    this.setState({
-      MessageOpen: false,
-      MessageText: ""
-    });
+  /************** Kết thúc hàm login **************/
+
+
+  const showDrawer = () => {
+    setVisible(true)
+  };
+
+  const onClose = () => {
+    setVisible(false)
+    if(props.visible){
+      props.reset();
+    }
+    setLoading(false)
+  };
+
+  const customStyle ={
+    padding: "10px 30px",
+    color: "black",
+    fontWeight: "bold",
+    margin:"10px 30px"
   }
-
-  showDrawer() {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  onClose() {
-    this.setState({
-      visible: false,
-    });
-    if(this.props.visible){
-      this.props.reset();
-    }
-    console.log(this.state.visible);
-  };
-
-  render() {
-    const { MessageOpen, MessageText } = this.state;
-    const { visible } = this.props;
-    const { user } = this.context;
-    console.log(this.state.visible);
-
-    
-
-    
-    const customStyle ={
-      padding: "10px 30px",
-      color: "black",
-      fontWeight: "bold",
-      margin:"10px 30px"
-    }
     return (
       <Aux>
         <div className="flowup">
-          <Button type="link" className="btnlgin" onClick={() => this.showDrawer()}>ĐĂNG NHẬP</Button>
+          <Button type="link" className="btnlgin" onClick={showDrawer}>ĐĂNG NHẬP</Button>
           
             <Modal
               title="Login"
               width={500}
-              onCancel={()=>this.onClose()}
-              visible={this.state.visible || visible}
+              onCancel={onClose}
+              visible={visible || props.visible}
               bodyStyle={{ paddingBottom: 20 }}
               footer={null}
               z-index={10000}
             >
-              <Spin spinning={this.state.loading}>
+              <Spin tip="Loading..." spinning={loading}>
               <div id="head-login">
                 <h4>With your social network</h4>
                 <div id="btn-network-social">
@@ -222,15 +114,13 @@ export default class Login extends Component {
                       appId="2595169840730749"
                       autoLoad={false}
                       fields="name,email,picture"
-                      callback={this.responseFacebook} 
+                      callback={responseFacebook} 
                       cssClass="my-facebook-button-class"
                       textButton="Facebook"
                     />
                     <GoogleLogin
                       clientId="311307780250-ns2lg1103qoblsnbmklpr3f8c6d1v53e.apps.googleusercontent.com"
-                      // buttonText="Login"
-                      onSuccess={this.responseGoogle}
-                      // onFailure={responseGoogle}
+                      onSuccess={responseGoogle}
                       cookiePolicy={'single_host_origin'}
                       className="google-button"
                       render={renderProps => (
@@ -238,22 +128,14 @@ export default class Login extends Component {
                       )}
                     >
                     </GoogleLogin>
-                    {/* <button type="button" class="btn btn-primary">Facebook</button> */}
                 </div>
               </div>
-              <LoginForm login={this.handleLogin} />
+              <LoginForm login={handleLogin} />
               </Spin>
             </Modal>
-          <If condition={MessageOpen} component={AlertMessage} props={
-            {
-              open: MessageOpen,
-              text: MessageText,
-              onClose: this.handleClose,
-              type: 'warning',
-            }
-          } />
+          
         </div>
       </Aux>
     );
-  }
+  
 }

@@ -1,1 +1,28 @@
-["Loại","Chung cư","Căn hộ","Nhà trọ","Phòng ở ghép","Mặt bằng"]
+
+
+[
+    {
+        "type": "ALL",
+        "name": "Tất cả"
+    },
+    {
+        "type": "A",
+        "name": "Phòng Trọ"
+    },
+    {
+        "type": "B",
+        "name": "Nhà Nguyên Căn"
+    },
+    {
+        "type": "C",
+        "name": "Chung Cư"
+    },
+    {
+        "type": "D",
+        "name": "Nhà Phố"
+    },
+    {
+        "type": "E",
+        "name": "Nhà ở ghép"
+    }
+]
