@@ -13,6 +13,7 @@ import {Login} from '../Login/index'
 import Register from '../Register/register'
 import If from "../../others/helper/if";
 import { AuthContext, useAuthContext } from "../../others/contexts/auth.context";
+import { logout } from '../../api/api'
 const { SubMenu } = Menu;
 
 const navLogin = props => (
@@ -23,9 +24,13 @@ const navRegister = () => (
 );
 const Profile = () => {
     const { onLogout } = useAuthContext();
-    // const history = useHistory();
+
+    const logoutAPI = async () =>{
+        const res = await logout()
+        console.log(res)
+    }
     const handleClick = () => {
-        // history.push("/");
+        logoutAPI();
         onLogout();
     };
 
@@ -89,27 +94,39 @@ export default class NavFoot extends React.Component {
     };
 
     handleClick = () =>{
-        console.log("hello")
+        this.setState({
+            visible: false,
+            });
 
     }
     onClickLocal = (e) =>{
         console.log(e.target.value)
     }
 
-    // clicktype = (path) =>{
-    //     this.props.history.push({ pathname: 'home' });
-    //     // this.props.history.replace({ pathname: path });
-    // }
+    lastestPost = () =>{
+        this.props.history.push('/results?q=latest')
+    }
+    home = () =>{
+        this.props.history.push('/home');
+    }
 
     render() {
     const { user } = this.context;
     return (
             <nav className={this.state.classNm}  >
-                    <div onClick={this.showDrawer} className="nav-mobile">
+                <div className="nav-mobile">
+                    <div onClick={this.showDrawer} className="nav-icon-mobile" >
                         <div className="btn-menu-mobile"></div>
                         <div className="btn-menu-mobile"></div>
                         <div className="btn-menu-mobile"></div>
                     </div>
+                    <div style={{width: "200px"}}>
+                        <Link to="/home" style={{width: "fit-content"}}>
+                            <img src="../img/logo/logo2.png" style={{width: "40%"}}/>
+                        </Link>
+                    </div>
+                </div>
+
                     <Drawer
                     title="2HOME"
                     placement="left"
@@ -176,15 +193,21 @@ export default class NavFoot extends React.Component {
                                 ))
                             }
                             </SubMenu>
-                            <Menu.Item key="2">Tin mới nhất</Menu.Item>
-                            <Menu.Item key="3">Hướng dẫn</Menu.Item>
+                            <Menu.Item key="2">
+                                <Link to={`/results?q=latest`}>Tin mới nhất</Link>
+                            </Menu.Item>
+                            <Menu.Item key="3">
+                                <a href="https://phongtro123.com/huong-dan-su-dung"> Hướng dẫn </a>
+                            </Menu.Item>
                         </Menu>
                     </Drawer>
                     <div className="container">
                     <div className="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link font-navbar" href="#"><i className="fa fa-fw fa-home"></i></a>
+                                <a className="nav-link font-navbar" onClick = {this.home}>
+                                    <i className="fa fa-fw fa-home"></i>
+                                </a>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link font-navbar" href="#" id="navbardrop" data-toggle="dropdown">
@@ -249,11 +272,11 @@ export default class NavFoot extends React.Component {
                                 }
                                 </div>
                             </li> 
-                            {/* <li className="nav-item">
-                                <Link to={'/results?q=latest'} >
+                            <li className="nav-item">
+                                <a className="nav-link font-navbar" onClick = {this.lastestPost}>
                                     Tin mới nhất
-                                </Link>
-                            </li>    */}
+                                </a>
+                            </li>   
                             <li className="nav-item">
                                 <a className="nav-link font-navbar" href="https://phongtro123.com/huong-dan-su-dung">
                                     Hướng dẫn

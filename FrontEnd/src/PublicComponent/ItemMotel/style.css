@@ -21,11 +21,9 @@
     padding: 0 5px;
     margin: auto 0
 }
-.mt-title h4
+.mt-title h6
 {
-    width: fit-content;
-    align-self: center;
-    margin: 0 5px;
+    font-size: large;
 }
 
 .mt-addr{
@@ -63,6 +61,7 @@ img{
     justify-items: center;
     align-items: center;
 }
+
 a.subnav_link:link {
     color: #212529;
 }
@@ -80,9 +79,8 @@ a.subnav_link:active {
 
     /* for mobile */
 @media screen and (max-width: 600px) {
-    .mt-title h4{
+    .mt-title h6{
         font-size: medium;
-        font-weight: bold;
         margin: 0;
         
     }

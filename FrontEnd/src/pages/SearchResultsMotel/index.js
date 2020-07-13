@@ -2,14 +2,15 @@ import React  from "react";
 import  './style.css';
 import { Component } from "react";
 import { FilterFind } from '../../PublicComponent/FilterFind/index'
-import { Pagination } from 'antd';
+import { message, Pagination } from 'antd';
 import News from '../../PublicComponent/NewsBoard/index'
 import queryString from 'query-string'
 import Aux from '../../others/HOC/auxiliary'
 import NavBar from '../../PublicComponent/NavBar/index';
 import { List } from './component/list'
-import { Spin } from 'antd';
+import { Spin, Breadcrumb } from 'antd';
 import { SearchMotel, latestPost } from '../../api/api'
+import { Link } from "react-router-dom";
 export default class MotelResults extends Component {
 
     constructor(props) {
@@ -23,31 +24,53 @@ export default class MotelResults extends Component {
         }
     }
 
+    // lọc phòng trọ
     searchMotel = async (dst, ward, type, arc, prc) =>{
         const res = await SearchMotel(dst, ward, type, arc, prc)
         console.log(res)
         this.setState(
+        { 
+            loading: false,
+        })
+        if(res)
+        {
+            this.setState(
             { 
                 results: res.data.results,
                 countResult: res.data.count,
                 loading: false,
                 pagesize: parseInt(res.data.count/10)
-            }
-        )
+            })
+        }
+        else{
+            message.error('Failed');
+        }
+        
     }
 
+    // lấy bài đăng mới nhất
     getLatestPost = async (page) =>{
         const res = await latestPost(page)
         console.log(res)
-        this.setState(
-            { 
-                results: res.data.results,
-                countResult: res.data.count,
-                loading: false,
-                pagesize: parseInt(1 + res.data.count/10)
+        this.setState({ 
+            loading: false,
+        })
+        if(res)
+        {
+            if(res.status == 200){
+                this.setState(
+                { 
+                    results: res.data.results,
+                    countResult: res.data.count,
+                    pagesize: parseInt(1 + res.data.count/10)
+                })
             }
-        )
-        console.log("pagesize: " + this.state.pagesize)
+            else {
+                message.error('Failed');
+            } 
+        }
+        
+        
     }
 
     componentDidMount() {
@@ -70,9 +93,7 @@ export default class MotelResults extends Component {
         })
         this.searchMotel(dst, ward, type, arc, prc )
     }
-    navSearch = ()=>{
 
-    }
     changePage = (page, pagesize)=>{
         const value = queryString.parse(this.props.location.search)
         this.setState({
@@ -110,8 +131,12 @@ export default class MotelResults extends Component {
 
     return(
         <Aux>
-            <NavBar location = {location} history = {history} onSearch = {this.navSearch} home ={false}/>
+            <NavBar location = {location} history = {history} home ={false}/>
             <div className="container">
+                <Breadcrumb className="breadcrumb">
+                    <Breadcrumb.Item><Link to='/home'>Home</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item>Tìm kiếm</Breadcrumb.Item>
+                </Breadcrumb>
                 <div className="row srm-fr">
                     <div className="col-lg-3 find">
                         <FilterFind typeft={true} location = {location} history = {history} onSearch = {this.search}/>

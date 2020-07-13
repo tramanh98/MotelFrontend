@@ -9,7 +9,7 @@ const NavBar = (props) => {
 
     return (
     <Aux>
-        <NavHead/>
+        <NavHead {...props}/>
         <NavFoot {...props}/>
     </Aux>
     );

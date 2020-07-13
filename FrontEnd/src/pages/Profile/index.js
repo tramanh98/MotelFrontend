@@ -7,6 +7,7 @@ import './style.css'
 import {useAuthContext} from '../../others/contexts/auth.context'
 import NavBar from '../../PublicComponent/NavBar';
 import {NavAvatar} from '../../PublicComponent/Avatar/index'
+import { Breadcrumb } from 'antd';
 export const Dashboard = props => {
     const { user } = useAuthContext();
     const username = user.username;
@@ -15,6 +16,10 @@ export const Dashboard = props => {
         <Aux>
             <NavBar home={false}/>
             <div className="container">
+                <Breadcrumb className="breadcrumb">
+                    <Breadcrumb.Item><Link to='/home'>Home</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                </Breadcrumb>
                 <Row gutter={16} className="profile">
                     <Col className="gutter-row dsh-mobile" span={6}>
                         <div className="menu_profile">

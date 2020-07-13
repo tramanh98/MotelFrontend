@@ -39,4 +39,8 @@
         text-align: center;
         width: 100%;
     }
+    .btnmb{
+        width: 50% !important;
+        height: 2.2rem !important;
+    }
 }

@@ -2,9 +2,23 @@
 
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700);
 
-/* .icon-social{
-    background-color: honeydew;
-} */
+.footer-react a:link {
+    color: #212529 !important;
+}
+  
+.footer-react a:hover {
+    cursor: pointer;
+    color: #458877 !important;
+    text-decoration: none !important;
+ }
+  
+.footer-react a:visited {
+    color: #212529 !important; 
+}
+  
+.footer-react a:active {
+    color: black !important; 
+}
 
 .footer-head{
     background-color: #7274731c;
@@ -18,10 +32,8 @@
 .foot-logo{
     width: 70%;
 }
-/* .footer-react {
-    margin: 0 !important;
-    padding: 0 !important;
-} */
+
+
 /* mobile */
 @media screen and (max-width: 600px) {
     .footer-react hr{
@@ -29,7 +41,6 @@
     }
     .contact-with-us h6 {
         font-size: small;
-        /* background-color: firebrick; */
     }
     .footer-react h6{
         margin: 0 !important;
@@ -38,17 +49,13 @@
     }
     .icon-social i {
         font-size: small;
-        /* background-color: green; */
     }
     .footer-react p{
         padding: 0;
         margin: 0;
         margin-top: 5px;
-        /* font-size: small; */
     }
-    /* .font-footer a{
-        font-size: medium;
-    } */
+    
     .foot-head-padding{
         padding: 10px 0 !important;
     }

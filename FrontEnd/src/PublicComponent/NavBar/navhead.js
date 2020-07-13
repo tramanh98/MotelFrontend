@@ -9,7 +9,7 @@ import { NavAvatar } from '../Avatar';
 import { Badge, Popover, Button } from 'antd';
 import { BellFilled, SearchOutlined } from '@ant-design/icons';
 import { AuthContext, useAuthContext } from "../../others/contexts/auth.context";
-
+import { logout } from '../../api/api'
 const Loginus = props => (
     <Login {...props} />
 );
@@ -35,11 +35,16 @@ const ThongBao = () => {
     );
 };
 
+
 const Profile = () => {
     const { onLogout } = useAuthContext();
     const history = useHistory();
+    const logoutAPI = async () =>{
+        const res = await logout()
+        console.log(res)
+    }
     const handleClick = () => {
-        // history.push("/");
+        logoutAPI();
         onLogout();
     };
 
@@ -90,7 +95,6 @@ class NavHead extends Component  {
         if(user){
             console.log(this.props.history)
             this.props.history.push('/posting');
-            // console.log(user)
         }
         else {
             this.setState({visible: true})

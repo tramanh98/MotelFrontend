@@ -8,14 +8,21 @@ const SearchMotel = async (dst, ward, type, area, prc)=>{
 }
 
 const latestPost = async (page)=>{
-    if(page == 1){
-        const res = await httpClient.get('api/motels/latest');
-        return res;
+
+    try{
+        if(page == 1){
+            const res = await httpClient.get('api/motels/latest');
+            return res;
+        }
+        else {
+            const res = await httpClient.get(`api/motels/latest?page=${page}`);
+            return res;
+        }
     }
-    else {
-        const res = await httpClient.get(`api/motels/latest?page=${page}`);
-        return res;
+    catch {
+        message.error('Failed');
     }
+    
     
 }
 
@@ -78,7 +85,6 @@ const DeletePost = async (token, id)=>{
 
 //-----------------------Authencation-------------------------//
 const restoreInforUser = (iduser, fname, lname, email, type_tk, image, username, token, onLogin ) =>{
-    console.log("helllllllllllll")
     
     const dt = {  
                     iduser: iduser, 
@@ -104,7 +110,7 @@ const notifi_error = (error) =>{
 
 const Login_Fb = async (token, inforfb, onLogin) =>{
     try {
-        const response2 = await httpClient.post(`authgg/convert-token/`, {
+        const response2 = await httpClient.post(`auth/social/convert-token/`, {
             grant_type: "convert_token",
             client_id:"2595169840730749",
             client_secret: "93fcc97b1a720b98a6df0462d6ac0ad5",
@@ -124,7 +130,7 @@ const Login_Fb = async (token, inforfb, onLogin) =>{
 
 const Login_GG = async (token, infor_gg, onLogin) =>{
     try {
-        const response2 = await httpClient.post(`authgg/convert-token/`, {
+        const response2 = await httpClient.post(`auth/social/convert-token/`, {
             grant_type: "convert_token",
             client_id:"311307780250-ns2lg1103qoblsnbmklpr3f8c6d1v53e.apps.googleusercontent.com",
             client_secret: "_2iQp_APiWURPtKfiibkcvCY",
@@ -192,6 +198,11 @@ const Register_sv = async (values, onLogin) =>{
     }
 }
 
+const logout = async () =>{
+    const response = await httpClient.post(`auth/logout/`);
+    return response
+} 
+
 //------------------------------Profile User ------------------------------------//
 
 
@@ -232,18 +243,17 @@ const editProf = async (values, user, token, onLogin) =>{
 
 const changePassword = async (values, token) => {
     try {
-        const response = await httpClient.put(`auth/password/change/`, {
-            new_password1: values.oldpw,
-            new_password2: values.pw1,
-            old_password: values.pw2
+        const response = await httpClient.post(`auth/password/change/`, {
+            old_password: values.oldpw,
+            new_password1: values.pw1,
+            new_password2: values.pw2
         },
         {
             headers: {
                 Authorization: token
             }
         });
-        console.log(response)
-        return {"success change password ": response}
+        return response
 
     } catch(error) {
         console.log(error);
@@ -263,5 +273,5 @@ const GetAllMyPost = async (token)=>{
 }
  
 export { GetAllMyPost, DeletePost, SearchMotel, PostBoard, UploadImg, latestPost, GetPost, UpdatePost, DeleteMotelImg};
-export { Login_Fb, Login_GG, Login_sv, Register_sv }
+export { Login_Fb, Login_GG, Login_sv, Register_sv, logout }
 export { getProfile, changePassword, editProf }

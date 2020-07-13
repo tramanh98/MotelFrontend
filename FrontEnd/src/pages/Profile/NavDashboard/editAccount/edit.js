@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message, notification } from 'antd';
 import {Dashboard} from '../../index'
 import { AuthContext, useAuthContext } from '../../../../others/contexts/auth.context';
 import '../../style.css'
@@ -16,6 +16,9 @@ const RenderFormEdit = props =>{
     const onFinish = async (values) => {
         console.log(values)
         const res = await editProf(values, user, `${user.typeToken} ${user.token}`, onLogin)
+        if(res){
+            message.success('Success');
+        }
         
     };
     return (
@@ -75,6 +78,13 @@ export default class EditProfile extends Component {
         console.log('Success:', values);
         const { user } = this.context;
         const response = await changePassword(values, `${user.typeToken} ${user.token}`) 
+        if(response){
+            if(response.status == 200)
+            {
+                message.success('Success');
+            }
+            
+        }
         console.log(response)
     };
     /*----------------------------------------------------------*/

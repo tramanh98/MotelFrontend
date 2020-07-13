@@ -35,7 +35,6 @@ export default function MotelFrame(props) {
                 </div>
                 <div className="mt-content">
                     <div>
-                        {/* <EnvironmentTwoTone style={{fontSize: '20px', marginTop: "0"}} /> */}
                     Địa chỉ: {address}
                     </div>
                     <div>Khu vực: <span className="mt-price">{localObj.ward}, {localObj.dst}</span> </div>

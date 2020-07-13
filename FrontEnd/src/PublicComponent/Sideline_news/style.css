@@ -4,3 +4,20 @@
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+
+.exinfor a:link {
+    color: #212529 !important;
+}
+  
+.exinfor a:hover {
+    cursor: pointer;
+    color: #458877 !important;
+    text-decoration: none !important;
+ }
+  
+.exinfor a:visited {
+    color: #212529 !important; }
+  
+.exinfor a:active {
+    color: black !important; }

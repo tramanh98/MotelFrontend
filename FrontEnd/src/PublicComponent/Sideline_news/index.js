@@ -5,10 +5,11 @@ import './style.css';
 import moment from 'moment';
 const Contract = () => {
       return(
-        <div style={{margin: '20px 0'}}>
+        <div className = "exinfor" style={{margin: '20px 0'}}>
             <div className="hfy">Hữu ích</div>
             <ul style={{padding: '0 0 0 20px'}}>
-                <li><a href="https://phongtro123.com/news/hop-dong-thue-nha-tro-phong-tro">Mẫu hợp đồng cho thuê phòng trọ</a></li>
+                <li>
+                  <a  href="https://phongtro123.com/news/hop-dong-thue-nha-tro-phong-tro">Mẫu hợp đồng cho thuê phòng trọ</a></li>
                 <hr className="dashed"/>
                 <li><a href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-thue-phong-tro-tranh-bi-lua-gat.html">Cẩn thận các kiểu lừa đảo khi thuê phòng trọ</a></li>
                 <hr className="dashed"/>

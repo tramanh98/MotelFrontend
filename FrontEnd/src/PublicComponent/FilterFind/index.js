@@ -102,7 +102,7 @@ export const FilterFind = (props) =>  {
             </Col>
             
             <Col className="btn-find" xs={10} sm={6} md={2} lg={2} xl={2}>
-                <button onClick={onclick} style={{width: "100%", height: "100%", padding: 0, margin:0}} className="btn btn-success" type="button">Tìm</button>
+                <button onClick={onclick} style={{width: "100%", height: "100%", padding: 0, margin:0}} className="btn btn-success btnmb" type="button">Tìm</button>
             </Col>
         </Row>
     )

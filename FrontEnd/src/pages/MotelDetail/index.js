@@ -11,6 +11,7 @@ import SliderMotel from '../../PublicComponent/Slider/index'
 import Aux from "../../others/HOC/auxiliary";
 import NavBar from '../../PublicComponent/NavBar/index';
 import {ConvertPrc, ConvertTypeMT, convertLocal} from '../../data/convert'
+import { Link } from "react-router-dom";
 class MotelDetail extends Component {
 
     constructor(props) {
@@ -72,16 +73,11 @@ class MotelDetail extends Component {
             <Aux>
                 <NavBar location = {location} history = {history}  home={false}/>
                 <div className="container">
-                    {/* <Breadcrumb className="breadcrumb">
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>
-                        <a href="">Phòng trọ</a>
-                        </Breadcrumb.Item>
-                        <Breadcrumb.Item>
-                        <a href="">Phòng trọ quận Bình Thạnh</a>
-                        </Breadcrumb.Item>
-                        <Breadcrumb.Item>Phòng trọ phường 1</Breadcrumb.Item>
-                    </Breadcrumb> */}
+                    <Breadcrumb className="breadcrumb">
+                        <Breadcrumb.Item><Link to='/home'>Home</Link></Breadcrumb.Item>
+                        <Breadcrumb.Item>Detail</Breadcrumb.Item>
+                        <Breadcrumb.Item>{results.id}</Breadcrumb.Item>
+                    </Breadcrumb>
                     <div className="row">
                         <div className="col-lg-3">
                             <FilterFind typeft={true} location = {location} history = {history} />
