@@ -1,11 +1,10 @@
 import { Drawer} from 'antd';
-import { Menu, Input, Row, Col} from 'antd';
+import { Menu, Row, Col} from 'antd';
 import React from "react";
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import './style.css'
 import { Link } from "react-router-dom";
 import districts from '../../data/districts.json'
-import wards from '../../data/wards.json'
 import type from '../../data/type.json'
 import dientich from '../../data/dientich.json'
 import price from '../../data/price.json'
@@ -15,7 +14,6 @@ import Register from '../Register/register'
 import If from "../../others/helper/if";
 import { AuthContext, useAuthContext } from "../../others/contexts/auth.context";
 const { SubMenu } = Menu;
-const { Search } = Input;
 
 const navLogin = props => (
     <Login {...props} />
@@ -90,6 +88,19 @@ export default class NavFoot extends React.Component {
         });
     };
 
+    handleClick = () =>{
+        console.log("hello")
+
+    }
+    onClickLocal = (e) =>{
+        console.log(e.target.value)
+    }
+
+    // clicktype = (path) =>{
+    //     this.props.history.push({ pathname: 'home' });
+    //     // this.props.history.replace({ pathname: path });
+    // }
+
     render() {
     const { user } = this.context;
     return (
@@ -123,9 +134,6 @@ export default class NavFoot extends React.Component {
                             mode="inline"
                         >
                             <Menu.Item key="1"><Link to="/home">Trang chủ</Link></Menu.Item>
-
-                            {/* '?dst='+ IDdst +'&ward='+ IDward+'&type='+ IDtype
-                    +'&prc='+ Cst+'&area='+ Arc */}
                             <SubMenu key="sub1" title="Khu vực">
                             {
                                 districts.map((dst, index) => (
@@ -143,7 +151,7 @@ export default class NavFoot extends React.Component {
                                 type.map((obj, index) => (
                                     index!=0?
                                     <Menu.Item key={`type`+`${index}`}>
-                                        <Link to={`/results?dst=0&ward=0&type=${obj.type}&prc=0&area=0`}>{obj}</Link>
+                                        <Link to={`/results?dst=0&ward=0&type=${obj.type}&prc=0&area=0`}>{obj.name}</Link>
                                     </Menu.Item>:''
                                 ))
                             }
@@ -187,9 +195,9 @@ export default class NavFoot extends React.Component {
                                         {
                                             districts.map((dst, index) => (
                                                 index!=0?
-                                                <div  className="col-lg-3">
+                                                <div  className="col-lg-3" >
                                                     <Link key={index} className="dropdown-item" 
-                                                    to={`/results?dst=${dst.type}&ward=0&type=0&prc=0&area=0`}>
+                                                        to={`/results?dst=${dst.type}&ward=0&type=0&prc=0&area=0`}>
                                                         {dst.name}
                                                     </Link>
                                                 </div>:''
@@ -241,28 +249,21 @@ export default class NavFoot extends React.Component {
                                 }
                                 </div>
                             </li> 
-                            <li className="nav-item">
-                                <a className="nav-link font-navbar" href="#">
+                            {/* <li className="nav-item">
+                                <Link to={'/results?q=latest'} >
                                     Tin mới nhất
-                                </a>
-                            </li>   
+                                </Link>
+                            </li>    */}
                             <li className="nav-item">
                                 <a className="nav-link font-navbar" href="https://phongtro123.com/huong-dan-su-dung">
                                     Hướng dẫn
                                 </a>
                             </li> 
                         </ul> 
-                        
                     </div>
-                    {/* <Search
-                        placeholder="Search"
-                        onSearch={value => console.log(value)}
-                        className="navbar-search"
-                    /> */}
-                    </div>
-
+                </div>
  
-                </nav>
+            </nav>
       
     );
   }

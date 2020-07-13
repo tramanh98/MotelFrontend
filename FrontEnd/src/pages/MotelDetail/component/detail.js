@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import '../style.css';
-import { Component } from "react";
 import { Col, Tag, Row  } from 'antd';
 
 export default function Detail(props) {

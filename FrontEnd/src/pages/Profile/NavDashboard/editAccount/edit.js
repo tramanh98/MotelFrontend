@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
-import { Row, Col, Avatar,Form, Input, Button } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import AvatarUpload from './avatar'
+import { Form, Input, Button } from 'antd';
 import {Dashboard} from '../../index'
 import { AuthContext, useAuthContext } from '../../../../others/contexts/auth.context';
 import '../../style.css'
-import axios from 'axios';
 import {FormUD} from './form'
 import { Tabs, Radio } from 'antd';
 import { getProfile, changePassword, editProf } from '../../../../api/api'
@@ -75,30 +71,17 @@ export default class EditProfile extends Component {
 
 
     /* gọi API để change password */
-onChangePass = async (values) => {
-    console.log('Success:', values);
-    const { user } = this.context;
-    const response = await changePassword(values, `${user.typeToken} ${user.token}`) 
-    console.log(response)
-};
+    onChangePass = async (values) => {
+        console.log('Success:', values);
+        const { user } = this.context;
+        const response = await changePassword(values, `${user.typeToken} ${user.token}`) 
+        console.log(response)
+    };
     /*----------------------------------------------------------*/
 
 
     render() {
-        // const normFile = e => {
-        //     console.log('Upload event:', e);
-        //     if (Array.isArray(e)) {
-        //       return e;
-        //     }
-        //     return e && e.fileList;
-        //   };
-        // const validateMessages = {
-        //     required: '${label} is required!',
-        //     types: {
-        //       email: '${label} is not validate email!',
-        //       number: '${label} is not a validate number!',
-        //     }
-        // };
+       
           
         return (
             <Dashboard>

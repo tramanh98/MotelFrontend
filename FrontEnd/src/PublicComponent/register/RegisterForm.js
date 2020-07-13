@@ -1,20 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Form,
   Input,
-  Tooltip,
-  Cascader,
   Select,
-  Row,
-  Col,
   Checkbox,
   Button,
-  AutoComplete,
-  notification,
 } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import axios from 'axios';
-const { Option } = Select;
 
 const formItemLayout = {
   labelCol: {
@@ -53,13 +45,9 @@ export  const RegistrationForm = (props) => {
 
   /*** register  ***/
   const onFinish = (values) => {
-
     props.register(values)
-    // console.log('Received values of form: ', values.username);
 
   };
-
- 
 
 
   return (
@@ -70,13 +58,39 @@ export  const RegistrationForm = (props) => {
       onFinish={onFinish}
       scrollToFirstError
     >
-        <Form.Item
+      <Form.Item
         name="username"
         label="Username"
         rules={[
           {
             required: true,
             message: 'Please input username!',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        name="fname"
+        label="First name"
+        rules={[
+          {
+            required: true,
+            message: 'Please input first name!',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        name="lname"
+        label="Last name"
+        rules={[
+          {
+            required: true,
+            message: 'Please input last name!',
           },
         ]}
       >

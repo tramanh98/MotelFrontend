@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React from "react";
 import './style.css';
 import NavHead from './navhead';
 import NavFoot from './navfoot'
@@ -10,7 +10,7 @@ const NavBar = (props) => {
     return (
     <Aux>
         <NavHead/>
-        <NavFoot home={props.home}/>
+        <NavFoot {...props}/>
     </Aux>
     );
 }

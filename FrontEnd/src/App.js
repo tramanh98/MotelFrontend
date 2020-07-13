@@ -7,8 +7,8 @@ import Home from './pages/Home/Home';
 import MotelResults from './pages/SearchResultsMotel/index';
 // import Profile from './Profile/default'
 // import Booking from './Booking/index'
-import Posts from './pages/Posting/index1'
-import {ProtectedRoute} from './PublicComponent/ProtectedRoute/index'
+import Posts from './pages/Posting/index'
+import { ProtectedRoute } from './PublicComponent/ProtectedRoute/index'
 import EditProfile from './pages/Profile/NavDashboard/editAccount/edit'
 import ListRoom from './pages/Profile/NavDashboard/index/ListRoom'
 class App extends Component {

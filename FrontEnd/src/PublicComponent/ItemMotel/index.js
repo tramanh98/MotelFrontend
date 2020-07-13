@@ -1,7 +1,6 @@
 import './style.css';
 import React from "react";
-import { Component } from "react";
-import { Layout, Col, Row, Tag, Button } from 'antd';
+import { Col, Row, Tag } from 'antd';
 import { EnvironmentTwoTone } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';

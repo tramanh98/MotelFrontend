@@ -1,14 +1,7 @@
 import { Descriptions, Badge } from 'antd';
 import React from "react";
-import {ConvertPrc, ConvertTypeMT, convertLocal} from '../../../data/convert'
 export default function GeneralInfor(props) {
 
-    // const prc = ConvertPrc(props.price)
-    // const type = ConvertTypeMT(props.typeMotel)
-    // const local = convertLocal(props.district, props.ward)
-    // const [prc, setPrc] = useState(ConvertPrc(props.price));
-    // const [type, setType] = useState(ConvertTypeMT(props.typeMotel));
-    // const [local, setLocal] = useState(convertLocal(props.district, props.ward));
     return(
         <div>
             <Descriptions

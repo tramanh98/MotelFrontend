@@ -1,6 +1,5 @@
 import httpClient from './http-client';
-import { useAuthContext } from "../others/contexts/auth.context";
-import { Spin, Alert, message, notification } from 'antd';
+import { message, notification } from 'antd';
     
 
 const SearchMotel = async (dst, ward, type, area, prc)=>{
@@ -152,10 +151,11 @@ const Login_sv = async (username, password, onLogin) =>{
         });
         
         const { data } = response;
-        restoreInforUser( data.user.pk, data.user.first_name, data.user.last_name, data.user.email, 'Token', 
-                            data.user.image, 
-                            data.user.username, 
-                            data.key, onLogin) 
+        restoreInforUser(   
+                    data.user.pk, data.user.first_name, data.user.last_name, data.user.email, 'Token', 
+                    data.user.image, 
+                    data.user.username, 
+                    data.key, onLogin) 
         return 'success'
     } catch(error) {
         notifi_error(error)
@@ -167,6 +167,8 @@ const Register_sv = async (values, onLogin) =>{
     try {
         const response = await httpClient.post(`auth/registration/`, {
             username: String(values.username),
+            firstName: String(values.fname),
+            lastName:  String(values.lname) ,
             email: String(values.email),
             password1: String(values.password1),
             password2: String(values.password2),
@@ -177,7 +179,6 @@ const Register_sv = async (values, onLogin) =>{
             title:"success",
             message:"Register Successfully"
             })
-            
             const {data} = response 
             restoreInforUser( data.user.pk, data.user.first_name, data.user.last_name, data.user.email, 'Token', 
                                 data.user.image, 

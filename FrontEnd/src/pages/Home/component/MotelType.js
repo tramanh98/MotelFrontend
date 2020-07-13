@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { Col, Row } from 'antd';
 import './style.css';
 import "slick-carousel/slick/slick.css"; 

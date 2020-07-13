@@ -1,11 +1,9 @@
-import { Modal, Button, Form, Col, Row, Input, Select, DatePicker } from 'antd';
-import React, { Component, useState } from 'react';
+import { Modal, Button } from 'antd';
+import React, {  useState } from 'react';
 import './style.css';
-import { Link } from "react-router-dom";
 import { RegistrationForm } from './RegisterForm'
 import Aux from '../../others/HOC/auxiliary'
 import { Spin } from 'antd';
-import axios from 'axios';
 import { Register_sv } from '../../api/api'
 import { useAuthContext } from "../../others/contexts/auth.context";
 

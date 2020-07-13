@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import './style.css';
-import { Row, Col, Form, Select, Button,  Carousel} from 'antd';
+import { Form, Select } from 'antd';
 import { FilterFind } from '../FilterFind/index'
 const { Option } = Select;
 const Banner = (props) => {

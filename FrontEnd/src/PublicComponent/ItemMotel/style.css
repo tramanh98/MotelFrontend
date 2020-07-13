@@ -69,7 +69,7 @@ a.subnav_link:link {
   
 a.subnav_link:hover {
     cursor: pointer;
-    color: blue; }
+    color: #458877; }
   
 a.subnav_link:visited {
     color: #212529; }

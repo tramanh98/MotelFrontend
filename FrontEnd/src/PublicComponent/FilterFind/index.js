@@ -2,7 +2,6 @@ import React, { Component, useState } from "react";
 import Select from './select';
 import './style.css'
 import { Slider, Button, Row, Col, Form } from 'antd';
-import { Link } from "react-router-dom";
 import districts from '../../data/districts.json'
 import wards from '../../data/wards.json'
 import type from '../../data/type.json'

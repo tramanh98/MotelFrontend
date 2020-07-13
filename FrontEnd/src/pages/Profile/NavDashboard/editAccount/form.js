@@ -1,6 +1,5 @@
-import React, { Component, useState } from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import { Row, Col, Avatar, Form, Input, Button, InputNumber} from 'antd';
+import React from 'react'
+import { Form, Input, Button } from 'antd';
 import AvatarUpload from './avatar'
 
 

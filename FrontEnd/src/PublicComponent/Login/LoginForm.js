@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from "react-router-dom";
 import './style.css'
 import { Form, Input, Select, Checkbox, Button, Divider } from 'antd';
-import FacebookLogin from 'react-facebook-login';
 import Aux from '../../others/HOC/auxiliary'
 const { Option } = Select;
 

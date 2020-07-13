@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import './style.css';
 import { Component } from "react";
 import axios from "axios"
@@ -71,7 +70,7 @@ class MotelDetail extends Component {
     const { location, history } = this.props;
         return (
             <Aux>
-                <NavBar home={false}/>
+                <NavBar location = {location} history = {history}  home={false}/>
                 <div className="container">
                     {/* <Breadcrumb className="breadcrumb">
                         <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -127,7 +126,7 @@ class MotelDetail extends Component {
                             <div className="map">
                                 <h4>Bản đồ</h4>
                                 <div id="map-container-google-1" className="z-depth-1-half map-container-5" style={{ height: '400px' }}>
-                                    <iframe src={'https://www.google.com/maps/embed/v1/place?key=AIzaSyBGZm_nEMOJDCmcqIBTDw5cayVT5aAoVLw&q=truong+mam+non+hoa+thien+ly,duong+hoang+hoa+tham,phuong+hiep+thanh,thanh+pho+thu+dau+mot,binh+duong,viet+nam'} frameborder="1"
+                                    <iframe src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBGZm_nEMOJDCmcqIBTDw5cayVT5aAoVLw&q=${results.local_map},${local.ward},${local.dst},thanh+pho+ho+chi+minh,viet+nam`} frameborder="1"
                                         style={{ border: '0' }} allowfullscreen></iframe>
                                 </div>
                             </div>

@@ -1,9 +1,5 @@
-import React, { Component } from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
-import { Row, Col, Avatar,Form, Input, Button } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import React from 'react';
 import '../style.css'
-import axios from 'axios';
 import MotelFrame from '../../../PublicComponent/ItemMotel/index'
 
 export const List = (props)=> {

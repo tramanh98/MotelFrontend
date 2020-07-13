@@ -1,18 +1,14 @@
-import React, { useState }  from "react";
+import React  from "react";
 import  './style.css';
 import { Component } from "react";
 import { FilterFind } from '../../PublicComponent/FilterFind/index'
-import MotelFrame from '../../PublicComponent/ItemMotel/index'
 import { Pagination } from 'antd';
-import Filter from './component/filter';
 import News from '../../PublicComponent/NewsBoard/index'
 import queryString from 'query-string'
 import Aux from '../../others/HOC/auxiliary'
 import NavBar from '../../PublicComponent/NavBar/index';
-import axios from 'axios';
 import { List } from './component/list'
-import PropTypes from "prop-types";
-import { Spin, Alert } from 'antd';
+import { Spin } from 'antd';
 import { SearchMotel, latestPost } from '../../api/api'
 export default class MotelResults extends Component {
 
@@ -38,7 +34,6 @@ export default class MotelResults extends Component {
                 pagesize: parseInt(res.data.count/10)
             }
         )
-
     }
 
     getLatestPost = async (page) =>{
@@ -66,9 +61,7 @@ export default class MotelResults extends Component {
         }
         else{
             this.searchMotel(value.dst, value.ward, value.type, value.area, value.prc )
-        }
-        
-        
+        }     
     }
 
     search = (dst, ward, type, arc, prc) => {
@@ -77,12 +70,14 @@ export default class MotelResults extends Component {
         })
         this.searchMotel(dst, ward, type, arc, prc )
     }
+    navSearch = ()=>{
+
+    }
     changePage = (page, pagesize)=>{
         const value = queryString.parse(this.props.location.search)
         this.setState({
             loading: true
         })
-
         if(value.q != undefined)
         {
             this.getLatestPost(page)
@@ -92,13 +87,30 @@ export default class MotelResults extends Component {
         }
         console.log(page)
     }
+    
+    componentDidUpdate (prevProps) {
+        if (prevProps.location.key !== this.props.location.key) {
+            const value = queryString.parse(this.props.location.search)
+            console.log(value)
+            this.setState({
+                loading: true
+            })
+            if(value.q != undefined)
+            {
+                this.getLatestPost(1)
+            }
+            else{
+                this.searchMotel(value.dst, value.ward, value.type, value.area, value.prc )
+            }
+        }
+    }
 
     render(){
     const { location, history } = this.props;
 
     return(
         <Aux>
-            <NavBar/>
+            <NavBar location = {location} history = {history} onSearch = {this.navSearch} home ={false}/>
             <div className="container">
                 <div className="row srm-fr">
                     <div className="col-lg-3 find">

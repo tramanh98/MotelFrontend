@@ -1,5 +1,4 @@
-import { Modal, Button, Form, Col, Row, Input, Select, DatePicker } from 'antd';
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import './style.css'
 import moment from 'moment';

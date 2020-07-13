@@ -1,21 +1,14 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import { Row, Col } from 'antd';
-import { Link } from "react-router-dom";
-import { Card, Avatar, Button, Radio } from 'antd';
-import { Form, Input, InputNumber, Upload } from 'antd';
+import {  Button, Form, Input,  } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import './style.css';
-// import PicturesWall from './ImgUpload'
 import Aux from '../../others/HOC/auxiliary'
 import districts from '../../data/districts.json'
 import wards from '../../data/wards.json'
 import type from '../../data/type.json'
-import dientich from '../../data/dientich.json'
-import price from '../../data/price.json'
 import { Select } from 'antd';
-import { Checkbox } from 'antd';
-import { Spin, Alert } from 'antd';
-import {ConvertPrc, ConvertTypeMT, convertLocal} from '../../data/convert'
+import { convertLocal} from '../../data/convert'
 const { Option } = Select;
 
 export const PostMotel = (props) => {
@@ -86,7 +79,6 @@ export const PostMotel = (props) => {
 
         return (
             <Aux>
-                {/* <Spin tip="Loading..." spinning={this.state.loading}> */}
                 <div className="container posting">
                     <div>
                         <h4>Đăng tin cho thuê</h4>
@@ -257,7 +249,6 @@ export const PostMotel = (props) => {
                     </Row>
 
                 </div>
-                {/* </Spin> */}
             </Aux>
 
         );

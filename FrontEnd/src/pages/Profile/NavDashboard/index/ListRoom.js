@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { Route, Switch, Redirect, Link } from "react-router-dom";
-import { Tag, Table, Popconfirm, Button, Card } from 'antd';
-import axios from 'axios';
+import React from 'react';
+import { Link } from "react-router-dom";
+import { Tag, Table, Popconfirm, Card } from 'antd';
 import { AuthContext } from '../../../../others/contexts/auth.context'
 import '../../style.css'
-import {GetAllMyPost, DeletePost} from '../../../../api/api'
-import {Dashboard} from '../../index'
-import {ConvertTypeMT} from '../../../../data/convert'
+import { GetAllMyPost, DeletePost } from '../../../../api/api'
+import { Dashboard } from '../../index'
+import { ConvertTypeMT } from '../../../../data/convert'
 export default class ListRoom extends React.Component {
     constructor(props) {
         super(props);

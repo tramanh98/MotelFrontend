@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import Banner from '../../PublicComponent/Banner'
 import { MotelType } from './component/MotelType'
 import Aux from '../../others/HOC/auxiliary'
@@ -7,7 +7,7 @@ const Home = (props) => {
     const { match, location, history } = props;
     return (
       <Aux>
-        <NavBar home={true}/>
+        <NavBar location = {location} history = {history} home={true}/>
         <Banner location = {location} history = {history}/>
         <div className="home-container container" >
             <MotelType/>

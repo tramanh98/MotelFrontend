@@ -1,15 +1,13 @@
-import { Modal, Button, Select, } from 'antd';
-import React, { Component, useState } from 'react';
+import { Modal, Button } from 'antd';
+import React, { useState } from 'react';
 import LoginForm from './LoginForm';
-import { Link, Redirect } from "react-router-dom";
 import Aux from '../../others/HOC/auxiliary';
 import './style.css'
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
-import { Spin, Alert } from 'antd';
+import { Spin } from 'antd';
 import {  useAuthContext } from "../../others/contexts/auth.context";
 import { Login_Fb, Login_GG, Login_sv, Register } from '../../api/api'
-const { Option } = Select;
 
 
 

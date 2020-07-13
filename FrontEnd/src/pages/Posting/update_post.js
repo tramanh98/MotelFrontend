@@ -1,29 +1,19 @@
 import {
     Form,
     Select,
-    InputNumber,
-    Switch,
-    Radio,
-    Slider,
     Button,
-    Upload,
-    Rate,
-    Checkbox,
     Row,
     Col,
     Input,
     Spin
   } from 'antd';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import districts from '../../data/districts.json'
 import wards from '../../data/wards.json'
 import type from '../../data/type.json'
-import dientich from '../../data/dientich.json'
-import price from '../../data/price.json'
-import axios from 'axios';
 import Aux from '../../others/HOC/auxiliary'
-import {ConvertPrc, ConvertTypeMT, convertLocal} from '../../data/convert'
+import { convertLocal} from '../../data/convert'
   const { Option } = Select;
   
   
@@ -37,9 +27,10 @@ export const  Demo = (props) => {
     const [numOfImg, setNumOfImg] = useState(props.numOfImg);
     const [addr, setAddress] = useState('');
     const [local, setLocal] = useState(convertLocal(props.district,props.ward));
+
+
     const handleChangeDistrict = value => {
       setIDdst(value)
-
     }
 
     console.log("Mảng ảnh upload trước đó sẽ bị xóa " + deleteimg );
@@ -48,18 +39,12 @@ export const  Demo = (props) => {
         props.getValue({...values}, props.id, deleteimg, FileImg)
       };
   
-    // const onFinish =  (values) => {
-    //     props.getValue(values, FileImg)
-    // };
-
     const onImageChange = event => {
         console.log(event.target.files);
         var arrFile = [event.target.files]
         var arrURL = [URL.createObjectURL(event.target.files[0])]
         setUrlImg(UrlImg => [...UrlImg, arrURL])
         setFileImg(FileImg => [...FileImg, arrFile ])
-        // console.log(FileImg);
-        // console.log(UrlImg);
 
     };
 

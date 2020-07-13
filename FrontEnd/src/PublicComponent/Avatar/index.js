@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Steps, Row, Col, Avatar, Button } from 'antd';
+import {  Avatar } from 'antd';
 import './style.css'
 import { useAuthContext } from "../../others/contexts/auth.context";
 import { UserOutlined } from '@ant-design/icons';

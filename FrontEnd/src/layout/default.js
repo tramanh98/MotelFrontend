@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { Layout } from 'antd';
 import Aux from '../others/HOC/auxiliary'
 import './style.css';

@@ -1,14 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter, useHistory } from "react-router-dom";
 import './style.css';
 import If from "../../others/helper/if";
-import { Component } from "react";
 import Register from '../Register/register'
-import {Login} from '../Login/index';
+import { Login } from '../Login/index';
 import { NavAvatar } from '../Avatar';
-import { Badge, Popover, Button, Input } from 'antd';
-import { MailOutlined, BellOutlined, HomeOutlined, BellFilled, SearchOutlined } from '@ant-design/icons';
+import { Badge, Popover, Button } from 'antd';
+import { BellFilled, SearchOutlined } from '@ant-design/icons';
 import { AuthContext, useAuthContext } from "../../others/contexts/auth.context";
 
 const Loginus = props => (

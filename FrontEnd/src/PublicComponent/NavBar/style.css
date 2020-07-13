@@ -162,7 +162,7 @@ a.subnav_link:link {
 }
 a.subnav_link:hover {
   cursor: pointer;
-  color: blue; }
+  color: #27496b; }
 
 a.subnav_link:visited {
   color: #212529; }
@@ -213,7 +213,7 @@ a.subnav_link:active {
 }
 
 .nav-item a:hover {
-  background-color: saddlebrown !important;
+  background-color: #578a80 !important;
 }
 
 /* drawer */
