@@ -14,7 +14,10 @@ export const NavAvatar = () => {
                     <div className="cter">
                         <Avatar src= {image} />
                         <div className="align">
+                            {username.length < 2 ?  <p style={{ margin: '0' }}>{user.fname} {user.lname}</p>:
                             <p style={{ margin: '0' }}>{username}</p>
+                            }
+                            
                         </div>
                     </div>
                 );
@@ -24,7 +27,9 @@ export const NavAvatar = () => {
                     <div className="cter">
                         <Avatar icon={<UserOutlined />} />
                         <div className="align">
+                            {username.length < 2 ?  <p style={{ margin: '0' }}>{user.fname} {user.lname}</p>:
                             <p style={{ margin: '0' }}>{username}</p>
+                            }
                         </div>
                     </div>
                     )

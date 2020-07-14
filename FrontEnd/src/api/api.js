@@ -157,12 +157,8 @@ const Login_sv = async (username, password, onLogin) =>{
         });
         
         const { data } = response;
-        restoreInforUser(   
-                    data.user.pk, data.user.first_name, data.user.last_name, data.user.email, 'Token', 
-                    data.user.image, 
-                    data.user.username, 
-                    data.key, onLogin) 
-        return 'success'
+        restoreInforUser( '', '','', '', 'Token', '', '', data.key, onLogin) 
+        return response
     } catch(error) {
         notifi_error(error)
         return error
@@ -186,10 +182,13 @@ const Register_sv = async (values, onLogin) =>{
             message:"Register Successfully"
             })
             const {data} = response 
-            restoreInforUser( data.user.pk, data.user.first_name, data.user.last_name, data.user.email, 'Token', 
-                                data.user.image, 
-                                data.user.username, 
-                                data.key, onLogin ) 
+            restoreInforUser( '','','','',
+                // data.user.pk, data.user.first_name, data.user.last_name, data.user.email, 
+                'Token', '','',
+                // data.user.image, 
+                // data.user.username, 
+                data.key,
+                onLogin ) 
             return 'success'
         }   
     } catch (error) {
@@ -274,4 +273,4 @@ const GetAllMyPost = async (token)=>{
  
 export { GetAllMyPost, DeletePost, SearchMotel, PostBoard, UploadImg, latestPost, GetPost, UpdatePost, DeleteMotelImg};
 export { Login_Fb, Login_GG, Login_sv, Register_sv, logout }
-export { getProfile, changePassword, editProf }
+export { getProfile, changePassword, editProf, restoreInforUser }

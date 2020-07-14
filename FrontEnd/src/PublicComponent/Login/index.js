@@ -7,7 +7,7 @@ import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import { Spin } from 'antd';
 import {  useAuthContext } from "../../others/contexts/auth.context";
-import { Login_Fb, Login_GG, Login_sv, Register } from '../../api/api'
+import { Login_Fb, Login_GG, Login_sv, getProfile, restoreInforUser } from '../../api/api'
 
 
 
@@ -15,7 +15,7 @@ export const Login = (props) => {
 
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { onLogin } = useAuthContext()
+  const { user, onLogin } = useAuthContext()
   /* login with facebook */
 
 const  loginSocial = async (response, typeacc) => {
@@ -50,7 +50,16 @@ const  loginSocial = async (response, typeacc) => {
   const lgin = async (username, password) =>{
     const response = await Login_sv(username, password, onLogin)
     console.log(response)
-  }
+
+    if (user) {
+        const token = user.token;
+        const typeToken = user.typeToken;
+        const res = await getProfile(`${typeToken} ${token}`)
+        const { profile } = res.data
+        restoreInforUser('', profile.first_name, profile.last_name,
+                          profile.email, typeToken, '', '', token, onLogin)
+    }
+}
 
   const responseFacebook = (response) =>{
     setLoading(true)
