@@ -17,26 +17,24 @@ import { convertLocal} from '../../data/convert'
   const { Option } = Select;
   
   
-export const  Demo = (props) => {
+export const  UpdateBoard = (props) => {
   
     
-    const [IDdst, setIDdst] = useState(parseInt(props.district));
+    const [IDdst, setIDdst] = useState(parseInt(props.dataPost.district));
     const [FileImg, setFileImg] = useState([]);  // new file img
-    const [UrlImg, setUrlImg] = useState([...props.imgs]);
+    const [UrlImg, setUrlImg] = useState([...props.dataPost.imgs]);
     const [deleteimg, setDeleteimg] = useState([]); // file img is going to be deleted, id
-    const [numOfImg, setNumOfImg] = useState(props.numOfImg);
-    const [addr, setAddress] = useState('');
-    const [local, setLocal] = useState(convertLocal(props.district,props.ward));
+    const [numOfImg, setNumOfImg] = useState(props.dataPost.numOfImg);
+    const [addr, setAddress] = useState(props.dataPost.address.split(' ').join('+'));
+    const [local, setLocal] = useState(convertLocal(props.dataPost.district, props.dataPost.ward));
 
 
     const handleChangeDistrict = value => {
       setIDdst(value)
     }
-
-    console.log("Mảng ảnh upload trước đó sẽ bị xóa " + deleteimg );
     const onFinish = values => {
         console.log('Received values of form: ', values);
-        props.getValue({...values}, props.id, deleteimg, FileImg)
+        props.getValue({...values}, props.dataPost.id, deleteimg, FileImg)
       };
   
     const onImageChange = event => {
@@ -74,7 +72,6 @@ export const  Demo = (props) => {
     };
 
     const handleChangeWard = (e) =>{
-        console.log("đây là change local "+ e)
         const lc = convertLocal(IDdst, e)
         setLocal({
             dst: lc.dst.split(' ').join('+'),
@@ -86,7 +83,7 @@ export const  Demo = (props) => {
     const onChangeAddress = (e) =>{
         setAddress(e.target.value.split(' ').join('+'))
     }
-    // console.log("Dây là log của update " + props.content)
+    
     return (
       <Aux>
             <div className="container posting">
@@ -100,16 +97,16 @@ export const  Demo = (props) => {
                           name="posting" 
                           onFinish={onFinish} 
                           initialValues={{
-                            ['title']: props.title,
-                            ['typeMotel']: props.typeMotel,
-                            ['arc']: props.arc,
-                            ['price']: props.price,
-                            ['district']: parseInt(props.district),
-                            ['ward']: parseInt(props.ward),
-                            ['address']: props.address,
-                            ['content']: props.content,
-                            ['phone_number']: props.phone_number,
-                            ['localMap']: props.localMap
+                            ['title']: props.dataPost.title,
+                            ['typeMotel']: props.dataPost.typeMotel,
+                            ['arc']: props.dataPost.arc,
+                            ['price']: props.dataPost.price,
+                            ['district']: parseInt(props.dataPost.district),
+                            ['ward']: parseInt(props.dataPost.ward),
+                            ['address']: props.dataPost.address,
+                            ['content']: props.dataPost.content,
+                            ['phone_number']: props.dataPost.phone_number,
+                            ['localMap']: props.dataPost.localMap
                           }}
                         >
                             <Input.Group>

@@ -1,16 +1,37 @@
 import React, { Component } from 'react'
-import {Demo} from './update_post'
+import {UpdateBoard} from './update_post'
 import {PostMotel}  from './new_post'
 import Aux from '../../others/HOC/auxiliary'
 import NavBar from '../../PublicComponent/NavBar'; 
 import { Spin } from 'antd';
 import { PostBoard, GetPost, UploadImg, UpdatePost, DeleteMotelImg } from '../../api/api'
 import { AuthContext } from '../../others/contexts/auth.context';
+import If from '../../others/helper/if'
+
+
+const createNewPost = (props) =>{
+    return (
+        <Aux>
+            <PostMotel  {...props} />
+        </Aux>
+    )
+}
+
+const updatePost = (props) =>{
+    return(
+        <Aux>
+            <UpdateBoard {...props} />
+        </Aux>
+    )
+}
 export default class Posts extends Component {
     constructor(props) {
         super(props);
         this.state = {
                 form: new FormData(),
+                loading: false ,
+                rend: false,
+                rendNewPost: false,
                 propsPost:{
                     id: 0,
                     title: "",
@@ -24,8 +45,6 @@ export default class Posts extends Component {
                     phone_number: "",
                     numOfImg: 0,
                     imgs: [],
-                    loading: false ,
-                    rend: false
             }
         }
     };
@@ -33,13 +52,15 @@ export default class Posts extends Component {
     componentDidMount() {
         if(this.props.match.params.idPost){
             this.setState({
-                propsPost:{
-                    loading: true
-                }
+                loading: true
             })
-            console.log("Đây là trang update" + this.props.match.params.idPost)
             this.getPost()
-        }   
+        }  
+        else {
+            this.setState({
+                rendNewPost: true
+            })
+        } 
     }
 
     static contextType = AuthContext;
@@ -78,10 +99,7 @@ export default class Posts extends Component {
             console.log(response.data);
         }
         this.setState({
-            propsPost:{
-                loading: false
-            }
-            
+            loading: false
         })
         this.props.history.push('/profile/index')
     }
@@ -106,7 +124,6 @@ export default class Posts extends Component {
         for (var i = 0; i < listDelete.length; i++) {
             console.log(id)
             console.log("Đây là file trong hàm for " + listDelete[i])
-            // this.setForm(id, fileImg[i]);
             const response = await DeleteMotelImg(`${user.typeToken} ${user.token}`,listDelete[i], id);
             console.log(response.data);
         }
@@ -119,9 +136,7 @@ export default class Posts extends Component {
             console.log(response.data);
         }
         this.setState({
-            propsPost:{
-                loading: false
-            }
+            loading: false
         })
         this.props.history.push('/profile/index')
 
@@ -133,6 +148,8 @@ export default class Posts extends Component {
         const { data } = response;
         console.log(data)
         this.setState({
+            loading: false,
+            rend: true,
             propsPost:{
                 id: data.id,
                 title: data.title,
@@ -147,8 +164,6 @@ export default class Posts extends Component {
                 localMap: data.local_map ,
                 numOfImg: data.images.length,
                 imgs: data.images,
-                loading: false,
-                rend: true
             }
         })
     }
@@ -158,7 +173,7 @@ export default class Posts extends Component {
         console.log("This is the final results: " + value.title)
         console.log(FileImg)
         this.setState({
-                propsPost:  { loading: true }
+                loading: true 
             }
         )
         this.onPost(value, FileImg)
@@ -166,7 +181,7 @@ export default class Posts extends Component {
     handleUpdate = (value, id, listDelete, fileImg) => {
         console.log("This is the final results: " + value.title + "        " + id)
         this.setState({
-                propsPost:  { loading: true }
+                loading: true 
             }
         )
         this.onUpdatePost(value, id, listDelete, fileImg)
@@ -174,30 +189,21 @@ export default class Posts extends Component {
 
     render() {
         const { location, history } = this.props;
+        const { match } = this.props;
         return (
             <Aux>
                 <NavBar location = {location} history = {history}  home={false} />
-                {this.props.match.params.idPost != undefined ?
-                        this.state.propsPost.rend ?
-                                <Aux>
-                                    <Spin tip="Loading..." spinning={this.state.propsPost.loading}>
-                                        <Demo 
-                                            params={this.props.match.params.idPost} 
-                                            {...this.state.propsPost}   
-                                            getValue = {this.handleUpdate}
-                                        />
-                                    </Spin>
-                                </Aux>
-                                : ''
-                        :
-                            <Aux>
-                                <Spin tip="Loading..." spinning={this.state.propsPost.loading}>
-                                    <PostMotel  
-                                    getValue = {this.handleNewPost} 
-                                    />
-                                </Spin>
-                            </Aux>
-                }
+                <Spin tip="Loading..." spinning={this.state.loading}>
+                    <If condition={this.state.rendNewPost} component={createNewPost}
+                    props={{ getValue: this.handleNewPost }} />
+
+                    <If condition={this.state.rend} component={updatePost}
+                    props={{
+                        params: this.props.match.params.idPost,
+                        dataPost : {...this.state.propsPost} , 
+                        getValue : this.handleUpdate
+                    }}/>
+                </Spin>
             </Aux>
                     
             

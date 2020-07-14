@@ -3,6 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 import './style.css'
 import axios from 'axios';
 import MotelFrame from '../../../PublicComponent/ItemMotel/index'
+import {latestPost} from '../../../api/api'
 export default class HomeList extends Component {
     
     constructor(props) {
@@ -13,12 +14,14 @@ export default class HomeList extends Component {
         
     };
     async componentDidMount() {
-        const response = await axios.get(`http://127.0.0.1:8000/api/motels/latest`).then(response => {
-            console.log(response.data)
+        const response = await latestPost(1)
+        if(response.status == 200)
+        {
             this.setState({
                 results: response.data.results
             })
-        })
+        }
+        
     }
 
     render() {

@@ -12,6 +12,7 @@ import Aux from "../../others/HOC/auxiliary";
 import NavBar from '../../PublicComponent/NavBar/index';
 import {ConvertPrc, ConvertTypeMT, convertLocal} from '../../data/convert'
 import { Link } from "react-router-dom";
+import {GetPost} from '../../api/api'
 class MotelDetail extends Component {
 
     constructor(props) {
@@ -30,38 +31,31 @@ class MotelDetail extends Component {
     /** gọi API để lấy tất cả các thông tin của phòng trọ **/
     async componentDidMount() {
         console.log("helll đây là trang detail")
-        const response = await axios.get(`http://127.0.0.1:8000/api/motels/get/${this.props.match.params.idMotel}` )
-        .then(response => {
-            
-            const { data } = response;
-            console.log(data)
-            this.setState({
-                results: data,
-                user: data.user,
-                local: convertLocal(data.district, data.ward),
-                prc: ConvertPrc(data.price),
-                type: ConvertTypeMT(data.typeMotel)
-            })
-            this.setState({
-                textlist: data.content.split('\n')
-            })
-
-
-            const arrImages = []
-            for (var i = 0; i < data.images.length; i++) {
-                arrImages.push({
-                    original: data.images[i].image,
-                    thumbnail: data.images[i].image,
-                    originalClass: 'contain-img-detail'
-                })
-            }
-            this.setState({
-                list_images: arrImages
-            })
+        const response = await GetPost(this.props.match.params.idMotel)
+        const { data } = response;
+        console.log(data)
+        this.setState({
+            results: data,
+            user: data.user,
+            local: convertLocal(data.district, data.ward),
+            prc: ConvertPrc(data.price),
+            type: ConvertTypeMT(data.typeMotel)
         })
-        .catch((error) => {
-            console.log(error);
-        }); 
+        this.setState({
+            textlist: data.content.split('\n')
+        })
+
+        const arrImages = []
+        for (var i = 0; i < data.images.length; i++) {
+            arrImages.push({
+                original: data.images[i].image,
+                thumbnail: data.images[i].image,
+                originalClass: 'contain-img-detail'
+            })
+        }
+        this.setState({
+            list_images: arrImages
+        })
 
     }
 

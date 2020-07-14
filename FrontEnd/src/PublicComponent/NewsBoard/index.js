@@ -13,11 +13,14 @@ export default class News extends Component {
     }
     async componentDidMount() {
         const response = await latestPost(1)
-        if(response.status == 200){
-            this.setState({
-                results: response.data.results.slice(0,5)
-            })
+        if(response){
+            if(response.status == 200){
+                this.setState({
+                    results: response.data.results.slice(0,5)
+                })
+            }
         }
+        
     }
     render(){
         return(
@@ -39,53 +42,7 @@ export default class News extends Component {
                                 </li>
                                 <hr className="dashed"/>
                             </div>
-                        )
-                    }
-                    {/* <li>
-                        <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
-                            <div className="dt" >
-                                <p>2.4tr/tháng</p>
-                                <span>{moment().fromNow()}</span>
-                            </div>
-                        </Link>
-                    </li>
-                    <hr className="dashed"/>
-                    <li>
-                        <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
-                            <div className="dt" >
-                                <p>2.4tr/tháng</p>
-                                <span>{moment().fromNow()}</span>
-                            </div>
-                        </Link>
-                    </li>
-                    <hr className="dashed"/>
-                    <li>
-                        <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
-                            <div className="dt" >
-                                <p>2.4tr/tháng</p>
-                                <span>{moment().fromNow()}</span>
-                            </div>
-                        </Link>
-                    </li>
-                    <hr className="dashed"/>
-                    <li>
-                        <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
-                            <div className="dt" >
-                                <p>2.4tr/tháng</p>
-                                <span>{moment().fromNow()}</span>
-                            </div>
-                        </Link>
-                    </li>
-                    <hr className="dashed"/>
-                    <li>
-                        <Link to="/detail/1234" className="subnav_link">Phòng trọ chính chủ cho thuê gần ĐHCN 
-                            <div className="dt" >
-                                <p>2.4tr/tháng</p>
-                                <span>{moment().fromNow()}</span>
-                            </div>
-                        </Link>
-                    </li> */}
-                    
+                        )}
                 </ul>
             </div>
           );
